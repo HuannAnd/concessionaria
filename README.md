@@ -70,5 +70,3 @@ Implementar medidas de segurança, como validação de dados e proteção contra
 
 - Escrever testes unitários para os controladores e serviços.
 - Garantir que a aplicação funcione corretamente e de forma confiável.
-
-Lembre-se de que a colaboração entre as equipes é fundamental. Defina APIs claras e documentadas para que a equipe de frontend possa consumir os dados e as funcionalidades fornecidas pela equipe de backend. Além disso, utilize sistemas de controle de versão (como Git) e plataformas de gerenciamento de projetos (como GitHub ou GitLab) para coordenar o desenvolvimento e rastrear o progresso das tarefas.
