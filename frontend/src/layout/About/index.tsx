@@ -9,7 +9,7 @@ export default function About() {
                         <h5>Discover</h5>
                         <h5>Discover</h5>
                     </div>
-                    <h2>About us</h2>
+                    <h2>Confortable and Viabiliaty, Here</h2>
                     <div className={styles.content}>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem praesentium ipsa nam modi! Eaque sed odit similique obcaecati vitae perspiciatis quibusdam qui. Veritatis ab dolorum cupiditate vero sapiente libero omnis?

@@ -1,7 +1,11 @@
+@import "../../app/variables";
+
 .About {
   width: 100%;
   min-height: 100vh;
   position: relative;
+  color: $primary-color;
+  // padding-bottom: 9vw;
 
   display: flex;
   justify-content: space-between;
@@ -9,7 +13,6 @@
 
 .mainContainer {
   width: 1440px;
-  padding-bottom: 9vw;
   margin-inline: auto;
 
   display: flex;
@@ -23,12 +26,16 @@
 
   flex: 1.36;
 
+  .recovery {
+    padding-left: 0;
+  }
+
   h2 {
     padding-top: 187px;
     margin-bottom: 21px;
 
     text-transform: uppercase;
-    font-size: 32px;
+    font-size: 96px;
     color: #111;
 
     display: block;

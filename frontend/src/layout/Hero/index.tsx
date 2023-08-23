@@ -11,8 +11,8 @@ export default function Hero({ }: HeroProps) {
     <section className={styles.Hero}>
       <div className={styles.container}>
         <div>
-          <h1>Explore</h1>
-          <button>Learn more</button>
+          <h1 >Explore</h1>
+          <button data-scroll data-scroll-speed={3}>Learn more</button>
           <div className={styles.carouselDots}>
             <div>
               <small>1</small>
@@ -24,7 +24,7 @@ export default function Hero({ }: HeroProps) {
               <small>3</small>
             </div>
             <div>
-              <small>3</small>
+              <small>4</small>
             </div>
           </div>
         </div>
