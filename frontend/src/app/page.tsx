@@ -1,9 +1,14 @@
 "use client"
 
 import { useEffect } from 'react'
+
 import Hero from "@/layout/Hero"
 import About from "@/layout/About"
+import Cars from "@/layout/Cars"
+
 import Lenis from '@studio-freight/lenis'
+
+import styles from './page.module.scss'
 
 export default function Home() {
   useEffect(() => {
@@ -23,6 +28,7 @@ export default function Home() {
     <>
       <Hero />
       <About />
+      <Cars />
     </>
   )
 }

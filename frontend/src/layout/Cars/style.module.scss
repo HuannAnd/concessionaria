@@ -1,9 +1,67 @@
+@import "/src/app/variables";
+
 .container {
   width: 100vw;
   min-height: 100vh;
+
+  background-color: #000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $secondary-color;
 }
 
 .centralize {
   width: 1440px;
   height: auto;
+}
+
+.title {
+  width: 40vw;
+  margin-bottom: $space-lg;
+  padding-top: $size-lg;
+
+  h2 {
+    width: 80%;
+
+    transition-duration: $time-to-resize;
+    transition-timing-function: $ease-to-resize;
+
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    width: 100%;
+    font-size: 20px;
+    line-height: 150%;
+
+    color: $lightSecondaryText;
+  }
+}
+
+.carsOptions {
+  width: 100%;
+  padding: $size-sm;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  color: $lightSecondaryText;
+
+  & span:first-child {
+    color: $lightPrimaryText;
+  }
+
+  border-bottom: 1px solid $secondary-color;
+}
+
+.carousel {
+  width: 100%;
+  height: 50vh;
+  margin-top: $space-sm;
+  padding-inline: 10vw;
+
+  background: #050505;
 }

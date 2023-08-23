@@ -14,8 +14,17 @@ p,
 small,
 h5,
 strong,
-button {
+button,
+span {
   font-family: "Inter", sans-serif;
+}
+
+h1 {
+  font-size: clamp(1em, 10vw, 200px);
+}
+
+h2 {
+  font-size: clamp(1em, 8vw, 96px);
 }
 
 html.lenis {

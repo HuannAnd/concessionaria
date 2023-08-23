@@ -22,6 +22,7 @@
 
 .left {
   position: relative;
+  padding-bottom: 9vw;
   width: 736px;
 
   flex: 1.36;
@@ -48,6 +49,8 @@
 }
 
 .content {
+  
+
   display: flex;
   padding-right: 3vw;
   margin-bottom: 64px;
@@ -102,4 +105,59 @@
   .recovery {
     color: #fff;
   }
+}
+
+.dotsListener {
+  position: absolute;
+  top: $space-lg;
+  right: $space-sm;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $space-sm;
+
+  li {
+    span {
+      position: absolute;
+      // transform: translateX(-100%);
+      margin-right: $space-sm;
+
+      height: inherit;
+      width: 120px;
+      color: $secondary-color;
+
+      opacity: 0;
+    }
+
+    &:first-child {
+      > button {
+        background: $secondary-color;
+      }
+     
+      > span {
+        opacity: 1;
+      }
+    }
+
+    > button {
+      aspect-ratio: 1 / 1;
+      height: 14px;
+      width: 14px;
+      background: rgba(255, 255, 255, 0.3);
+
+      border-radius: 100%;
+    }
+  }
+}
+
+.sportsTitle {
+  position: absolute;
+  text-transform: uppercase;
+  left: 50%; 
+  transform: translateX(calc(50vh - 1440px));
+
+  color: $darkPrimaryText;
+
+  transition: font-size $time-to-resize $ease-to-resize;
 }

@@ -1,3 +1,5 @@
+@import "/src/app/variables";
+
 .Hero {
   width: 100vw;
   min-height: 100vh;
@@ -19,7 +21,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 1;
 
   > div {
     position: relative;
@@ -65,10 +67,12 @@
 
     h1 {
       font-size: clamp(1em, 10vw, 200px);
-      // font-family: 'Fugaz One', sans-serif;
+      text-align: center;
       color: white;
       text-transform: uppercase;
-      text-align: center;
+
+      transition-duration: $time-to-resize;
+      transition-timing-function: $ease-to-resize;
 
       margin-bottom: clamp(0.1em, 3vw, 64px);
       z-index: 10;
@@ -86,11 +90,15 @@
       font-weight: 500;
       text-transform: uppercase;
       color: white;
+
+      cursor: pointer;
+
+      z-index: 2;
     }
   }
 }
 
-.carouselDots {
+.carouselOptions {
   position: absolute;
   padding: 0 3vw;
   padding-top: 9vw;
@@ -102,7 +110,6 @@
 
   font-weight: 100;
   font-family: Inter, sans-serif;
-  
 
   > div {
     width: 48px;

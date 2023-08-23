@@ -1,11 +1,40 @@
+// colors
 $primary-color: #111;
 $secondary-color: #fff;
 
+//text
+$darkPrimaryText: #111;
+$darkSecondaryText: rgba(
+  $color: #111,
+  $alpha: 0.6,
+);
+$darkSmallText: rgba(
+  $color: #111,
+  $alpha: 0.3,
+);
+$lightPrimaryText: #fff;
+$lightSecondaryText: rgba(
+  $color: #fff,
+  $alpha: 0.7,
+);
+$lightSecondaryText: rgba(
+  $color: #fff,
+  $alpha: 0.3,
+);
+
+// transitions-dura.
 $time-to-resize: 300ms;
 
+// transitions-func.
 $ease-smooth: cubic-bezier(0.45, 0, 0.55, 1);
 $ease-to-resize: cubic-bezier(0.22, 1, 0.36, 1);
 
+// spaces
 $space-xs: 1.75vw;
 $space-sm: 3vw;
 $space-lg: 9vw;
+
+// sizes
+$size-xs: 1.75vw;
+$size-sm: 3vw;
+$size-lg: 9vw;
