@@ -13,18 +13,18 @@ export default function Hero({ }: HeroProps) {
         <div>
           <h1 >Explore</h1>
           <button>Learn more</button>
-          <div className={styles.carouselOptions}>
-            <div>
-              <small>1</small>
+          <div className={styles.options}>
+            <div className={styles.dot}>
+              <small className={styles.dotLabel}>1</small>
             </div>
-            <div>
-              <small>2</small>
+            <div className={styles.dot}>
+              <small className={styles.dotLabel}>2</small>
             </div>
-            <div>
-              <small>3</small>
+            <div className={styles.dot}>
+              <small className={styles.dotLabel}>3</small>
             </div>
-            <div>
-              <small>4</small>
+            <div className={styles.dot}>
+              <small className={styles.dotLabel}>4</small>
             </div>
           </div>
         </div>

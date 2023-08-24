@@ -1,5 +1,7 @@
 import styles from './style.module.scss'
 
+import DisplayItemsHorizontal from '@/components/DisplayItemsHorizontal'
+
 export default function Cars() {
     return (
         <section className={styles.container}>
@@ -16,9 +18,9 @@ export default function Cars() {
                     <span>Small Car</span>
                     <span>Large Car</span>
                 </div>
-                <article className={styles.carousel}>
+                <DisplayItemsHorizontal>
                     
-                </article>
+                </DisplayItemsHorizontal>
             </div>
 
         </section>
