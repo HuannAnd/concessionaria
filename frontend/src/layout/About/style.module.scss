@@ -1,18 +1,18 @@
 @import "../../app/variables";
 
 .About {
-  width: 100%;
+  width: 1440px;
+  margin-inline: auto;
   min-height: 100vh;
   position: relative;
   color: $primary-color;
-  // padding-bottom: 9vw;
 
   display: flex;
   justify-content: space-between;
 }
 
 .mainContainer {
-  width: 1440px;
+  max-width: 1440px;
   margin-inline: auto;
 
   display: flex;
@@ -49,8 +49,6 @@
 }
 
 .content {
-  
-
   display: flex;
   padding-right: 3vw;
   margin-bottom: 64px;
@@ -73,6 +71,17 @@
     letter-spacing: -3%;
     line-height: 150%;
     font-weight: 100;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  span {
+    overflow: hidden;
   }
 }
 
@@ -107,6 +116,27 @@
   }
 }
 
+.carousel {
+  position: relative;
+  top: 50%;
+  transform: translate(-15%, -50%);
+
+  clip-path: inset(0%);
+
+  height: 60vh;
+  width: auto;
+}
+
+.image {
+  object-fit: cover;
+  height: 100%;
+  clip-path: inset();
+
+
+  background-position: center;
+  background: url("/car-slide.png");
+}
+
 .dotsListener {
   position: absolute;
   top: $space-lg;
@@ -120,7 +150,6 @@
   li {
     span {
       position: absolute;
-      // transform: translateX(-100%);
       margin-right: $space-sm;
 
       height: inherit;
@@ -134,7 +163,7 @@
       > button {
         background: $secondary-color;
       }
-     
+
       > span {
         opacity: 1;
       }
@@ -151,13 +180,50 @@
   }
 }
 
-.sportsTitle {
+.spanLine {
+  overflow: hidden;
+}
+
+.spanLineInner {
+  position: relative;
+  display: block;
+
+  font-weight: 500;
+  font-size: clamp(.7em, 1.3vw, 1.5em);
+  color: rgba($color: #111, $alpha: 0.8);
+}
+
+.moreInfo {
+  font-size: 25px;
+  color: rgba($color: #111, $alpha: 0.6);
+}
+
+.sports {
   position: absolute;
   text-transform: uppercase;
   left: 0;
-  transform: translateX(-50%);
+  transform: translate(-50px, 0%);
 
   color: $darkPrimaryText;
+  mix-blend-mode: difference;
+  background-blend-mode: difference;
+  color: #111;
 
   transition: font-size $time-to-resize $ease-to-resize;
+  z-index: 10;
+}
+
+.optioner {
+  position: absolute;
+  top: 0;
+  right: $space-sm;
+  transform: translateY(100%);
+
+  scale: .25;
+  height: 50vh;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $space-lg;
 }

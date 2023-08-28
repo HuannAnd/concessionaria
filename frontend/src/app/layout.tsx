@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { Fugaz_One, Inter } from 'next/font/google'
 
 import Navbar from '@/layout/Navbar'
+import Hamburguer from '@/components/Hamburguer'
 
 const fugazOne = Fugaz_One({ subsets: ['latin'], weight: ['400'] })
 const inter = Inter({ subsets: ['latin'], weight: ["100", "200", "400", "600", "500", "700"], variable: "--font-fugaz-one" })
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={fugazOne.className}>
         {/* <Navbar /> */}
+        <Hamburguer />
         {children}
       </body>
     </html>

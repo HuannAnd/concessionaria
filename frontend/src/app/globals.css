@@ -8,6 +8,13 @@
 
 body {
   overflow-x: hidden;
+  cursor: wait;
+}
+
+*::selection {
+  background: rgba(255, 0, 0, 0.7);
+  color: white;
+  opacity: 1;
 }
 
 p,
@@ -25,6 +32,10 @@ h1 {
 
 h2 {
   font-size: clamp(1em, 8vw, 96px);
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
 
 html.lenis {

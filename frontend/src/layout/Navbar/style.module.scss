@@ -1,3 +1,5 @@
+@import "../../app/variables";
+
 .Navbar {
   width: 100vw;
   position: fixed;
@@ -9,8 +11,12 @@
   justify-content: center;
   gap: 3vw;
 
-  background: #0000006b;
-  // mix-blend-mode: multiply;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
 
   z-index: 100;
 
@@ -25,7 +31,7 @@
   }
 }
 
-.brandContainer {
+.bradField {
   min-width: 48px;
   height: 100%;
   width: auto;
@@ -39,10 +45,10 @@
   }
 }
 
-.navigationContainer {
+.navigation {
   padding: 3vw 9vw 3vw 0;
   width: 50%;
-  gap: 1.75vw;
+  gap: $space-sm;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -50,12 +56,18 @@
 
   z-index: 5;
 
+  ul {
+    list-style: none;
+  }
+
   a {
-    font-size: 30px;
-    font-family: 'Inter';
+    font-size: 25px;
+    font-family: Inter, sans-serif;
     font-weight: 500;
     color: #ffffff7e;
     text-decoration: none;
+    list-style: none;
+
     transition: 300ms;
   }
 

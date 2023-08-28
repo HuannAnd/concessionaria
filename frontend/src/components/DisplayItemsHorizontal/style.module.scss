@@ -2,28 +2,15 @@
 
 .displayItemsHorizontal {
   width: 100%;
-  height: 300px;
   margin-block: $space-lg;
   padding: 0 $size-lg;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
   gap: $space-sm;
 }
 
-.item {
-    height: 100%;
-    width: 134px;
-    background: #ff0000;
-  
-    transition: $time-to-resize $ease-to-resize;
-  
-    cursor: pointer;
-    filter: brightness(.5);
-  
-    &:hover {
-      filter: brightness(1);
-    }
-  }
+

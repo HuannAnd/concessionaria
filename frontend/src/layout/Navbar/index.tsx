@@ -2,9 +2,13 @@
 
 // import Image from 'next/image'
 
+import Hamburguer from '@/components/Hamburguer';
 import styles from './style.module.scss'
 
-import "@/utils/mapReactsComponents"
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import { useLayoutEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 const links = [
   { title: "Home", href: "#" },
@@ -16,29 +20,23 @@ const links = [
 
 interface NavigationLinksProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> { }
-function NavigationLinks({ children, href }: NavigationLinksProps) {
-  return (
-    <li className={styles.navigationLink}>
-      <a href={href}>{children}</a>
-    </li>
-  )
-}
 
 export default function Navbar() {
   return (
-    <nav className={styles.Navbar} id='Navbar'>
-      <div>
-        <div className={styles.brandContainer} aria-label='Brand'>
-          <img
-            src="/nav-brand.png"
-            alt='branding'
-          />
+    <>
+      <nav className={styles.Navbar}>
+        <div>
+          <div className={styles.bradField} aria-label='Brand'>
+            <img
+              src="/nav-brand.png"
+              alt='branding'
+            />
+          </div>
+          <ul className={styles.navigation}>
+            {links.map((x) => <li> <a className={styles.link} href="#">{x.title}</a></li>)}
+          </ul>
         </div>
-        <ul className={styles.navigationContainer}>
-          {links.map((x) => <li> <a href="#">{x.title}</a></li>)}
-
-        </ul>
-      </div>
-    </nav>
+      </nav>
+    </>
   )
 }

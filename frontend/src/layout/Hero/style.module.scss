@@ -3,8 +3,12 @@
 .Hero {
   width: 100vw;
   min-height: 100vh;
-  display: grid;
-  align-content: center;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-inline: auto;
   background-color: #000;
   mix-blend-mode: multiply;
   z-index: 100;
@@ -17,128 +21,129 @@
   min-width: 200px;
   min-height: 100%;
   margin-inline: auto;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   z-index: 1;
 
-  > div {
-    position: relative;
+  h1 {
+    font-size: clamp(1em, 10vw, 200px);
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
 
-    > ::before {
-      position: fixed;
+    transition-duration: $time-to-resize;
+    transition-timing-function: $ease-to-resize;
+
+    margin-bottom: clamp(0.1em, 3vw, 64px);
+    z-index: 10;
+  }
+
+  button {
+    border: none;
+    background: #ff0000;
+    padding: 1.75vw 9vw;
+    display: block;
+    margin-inline: auto;
+
+    font-size: 1.5rem;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+
+    cursor: pointer;
+
+    clip-path: inset(0%);
+    transition: $time-to-resize $ease-to-resize;
+
+    z-index: 2;
+
+    &:hover {
+      clip-path: inset(5%);
+    }
+
+    &::before {
+      position: absolute;
       top: 0;
+      left: 0;
       right: 0;
       bottom: 0;
-      left: 0;
       content: "";
+      width: 100%;
+      height: 100%     ;
 
-      background: url("/car-background.png");
-      background-size: cover;
-      background-position: bottom;
-      background-repeat: no-repeat;
-      mix-blend-mode: darken;
-
-      z-index: -1;
+      background: #fff;
+      transform: translateX(-100%);
     }
 
-    > ::after {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      content: "";
-
-      background: rgb(255, 255, 255);
-      background: radial-gradient(
-        circle,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(0, 0, 0, 1) 100%
-      );
-      background-blend-mode: exclusion;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-
-      z-index: -1;
-    }
-
-    h1 {
-      font-size: clamp(1em, 10vw, 200px);
-      text-align: center;
-      color: white;
-      text-transform: uppercase;
-
-      transition-duration: $time-to-resize;
-      transition-timing-function: $ease-to-resize;
-
-      margin-bottom: clamp(0.1em, 3vw, 64px);
-      z-index: 10;
-    }
-
-    > button {
-      border: none;
-      background: #ff0000;
-      padding: 3vw 9vw;
-      display: block;
-      margin-inline: auto;
-
-      font-size: 1.5rem;
-      font-family: Inter, sans-serif;
-      font-weight: 500;
-      text-transform: uppercase;
-      color: white;
-
-      cursor: pointer;
-
-      z-index: 2;
+    &::before:hover {
+      transform: translateX(0%);
     }
   }
 }
 
-.carouselOptions {
+.mainContainer {
+  > :first-child::before {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+
+    background: url("/car-background.png");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    mix-blend-mode: darken;
+
+    z-index: -1;
+  }
+
+  > :first-child::after {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+
+    background: rgb(255, 255, 255);
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 1) 80%
+    );
+    background-blend-mode: color-burn;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
+
+    z-index: -1;
+  }
+}
+
+.optioner {
+  width: auto;
   position: absolute;
-  padding: 0 3vw;
-  padding-top: 9vw;
-  width: 100%;
+  bottom: 0;
+  left: 90%;
+  transform: translateX(-50%);
+
+  scale: .5;
+  gap: $space-lg;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  
+}
 
-  font-weight: 100;
-  font-family: Inter, sans-serif;
-
-  > div {
-    width: 48px;
-    position: relative;
-    aspect-ratio: 1 / 1;
-    border-radius: 100%;
-    padding: 10px;
-
-    scale: 1.5;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-blend-mode: multiply;
-
-    &:nth-child(2) {
-      background-color: rgba(217, 217, 217, 0.3);
-    }
-
-    small {
-      display: block;
-      padding: auto;
-      margin-block: auto;
-
-      text-align: center;
-      color: white;
-      font-size: 11px;
-      font-weight: 200;
-    }
-  }
+.dot {
+  width: 12px;
 }

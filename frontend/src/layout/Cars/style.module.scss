@@ -1,8 +1,9 @@
 @import "/src/app/variables";
 
-.container {
+.Cars {
   width: 100vw;
   min-height: 100vh;
+  margin: 0 auto 45vw auto;
 
   background-color: #000;
 
@@ -40,7 +41,7 @@
   }
 }
 
-.carsOptions {
+.options {
   width: 100%;
   padding: $size-sm;
 
@@ -48,13 +49,20 @@
   flex-direction: row;
   justify-content: space-between;
 
-  color: $lightSecondaryText;
-
-  & span:first-child {
-    color: $lightPrimaryText;
-  }
-
   border-bottom: 1px solid $secondary-color;
+}
+
+.carType {
+  opacity: 0.5;
+
+  transition-duration: $time-to-resize;
+  transition-timing-function: $ease-to-resize;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .carousel {
@@ -64,4 +72,28 @@
   padding-inline: 10vw;
 
   background: #050505;
+}
+
+.item {
+  height: 100%;
+  width: 134px;
+  background: transparent;
+
+  transition: $time-to-resize $ease-to-resize;
+
+  cursor: pointer;
+  filter: brightness(0.5);
+
+  &:hover {
+    filter: brightness(1);
+  }
+}
+
+.carImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
 }

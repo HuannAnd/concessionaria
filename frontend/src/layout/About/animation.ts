@@ -6,6 +6,7 @@ export const largeText: Variants = {
 
 export const smallText = {
   appear: {},
+
 };
 
 
