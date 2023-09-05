@@ -6,25 +6,19 @@ import Hero from "@/layout/Hero"
 import About from "@/layout/About"
 import Cars from "@/layout/Cars"
 import Preloader from '@/layout/Preloader'
+import Executive from '@/layout/Executive'
+import Large from '@/layout/Large'
 
 import Lenis from '@studio-freight/lenis'
 
 import styles from './page.module.scss'
 import { AnimatePresence } from 'framer-motion'
+import useLenisScroll from '@/hooks/useLenisScroll'
+import AppDemo from '@/layout/AppDemo'
 
 export default function Home() {
   const [isLoading, setLoad] = useState(true)
-  const [lenis] = useState(new Lenis())
-  useEffect(() => {
-    function raf(time: any) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-
-    requestAnimationFrame(raf)
-  },
-    []
-  )
+  const lenis = useLenisScroll()
 
   useEffect(() => {
     setTimeout(() => {
@@ -38,20 +32,33 @@ export default function Home() {
       document.body.style.cursor = "wait";
       setLoad(true)
     }
+  }, [])
 
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      lenis.resize()
+    })
   }, [])
 
 
   return (
-    <main className={styles.home}>
+    <>
       <AnimatePresence mode='wait'>
         {
           isLoading && <Preloader />
         }
       </AnimatePresence>
       <Hero />
+      <div className={styles.recovery}>
+        <div className={styles.right}></div>
+      </div>
       <About />
       <Cars />
-    </main>
+      <Executive />
+      <Large />
+      <AppDemo />
+      <div className={styles.grayBar} />
+      <AppDemo />
+    </>
   )
 }

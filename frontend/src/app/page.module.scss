@@ -1,12 +1,35 @@
 @import "variables";
 
-.sportsTitle {
+
+.recovery {
+  position: relative;
+  width: 100vw;
+  height: 15vh;
+
+  display: flex;
+}
+
+.left {
+  width: 60%;
+  height: 100%;
+  background: $light-200;
+  box-shadow: 0 0 0 100vmax $light-200;
+}
+
+.right {
   position: absolute;
-  text-transform: uppercase;
-  left: 50%;
-  transform: translate(calc(-1440px + 50%), -75%);
+  right: 0;
+  width: 50%;
+  height: 100%;
 
-  color: $darkPrimaryText;
+  background: $dark-300;
+  box-shadow: 0 0 0 100vmax #dddddd;
+  clip-path: inset(0 -100vmax);
+}
 
-  transition: font-size $time-to-resize $ease-to-resize;
+.grayBar {
+  width: 100vw;
+  height: 15vh;
+
+  background-color: $dark-100;
 }

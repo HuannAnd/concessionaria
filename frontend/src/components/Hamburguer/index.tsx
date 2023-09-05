@@ -18,8 +18,8 @@ export default function Hamburguer({ }: HamburguerProps) {
         end: window.innerHeight,
         trigger: document.documentElement,
         markers: false,
-        onLeave: () => { gsap.to(ref.current, { scale: 1, borderRadius: "0%", duration: .25, ease: "power1.out" }) },
-        onLeaveBack: () => { gsap.to(ref.current, { scale: 0, borderRadius: "100%", duration: .25, ease: "power1.out" }) }
+        onLeave: () => { gsap.to(ref.current, { scale: 1, duration: .25, ease: "power1.out" }) },
+        onLeaveBack: () => { gsap.to(ref.current, { scale: 0, duration: .25, ease: "power1.out" }) }
       }
     })
   })

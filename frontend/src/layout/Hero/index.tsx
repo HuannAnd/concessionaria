@@ -12,7 +12,7 @@ export default function Hero({ }: HeroProps) {
     <section className={styles.Hero}>
       <div className={styles.container}>
         <div className={styles.mainContainer}>
-          <h1 >Explore</h1>
+          <h1 className={styles.title}>Explore</h1>
           <button>Learn more</button>
           <DotsListener.Options timerToResolveInMs={30000} className={styles.optioner}>
             <DotsListener.Dot withLabel dotW={40} radius={20} className={styles.dot} order={0} />
@@ -22,7 +22,6 @@ export default function Hero({ }: HeroProps) {
           </DotsListener.Options>
         </div>
       </div>
-
     </section>
   )
 }

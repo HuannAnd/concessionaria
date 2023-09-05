@@ -49,8 +49,6 @@ export default function DisplayItemsHorizontal({ children, maxScaleY = 2 }: Disp
 
     return () => {
       cancelAnimationFrame(requestAnimationFrameId)
-      // ref.current.removeEventListener("mousemove", manageMouseMove as any)
-      // ref.current.removeEventListener("mouseleave", manageMouseLeave)
     }
   },
     []

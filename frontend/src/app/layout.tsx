@@ -7,8 +7,10 @@ import { Fugaz_One, Inter } from 'next/font/google'
 import Navbar from '@/layout/Navbar'
 import Hamburguer from '@/components/Hamburguer'
 
+import Providers from '@/contexts/Providers'
+
 const fugazOne = Fugaz_One({ subsets: ['latin'], weight: ['400'] })
-const inter = Inter({ subsets: ['latin'], weight: ["100", "200", "400", "600", "500", "700"], variable: "--font-fugaz-one" })
+const inter = Inter({ subsets: ['latin'], weight: ["100", "200", "400", "600", "500", "700", "900"], variable: "--font-fugaz-one" })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,9 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={fugazOne.className}>
-        {/* <Navbar /> */}
-        <Hamburguer />
-        {children}
+        <Providers>
+          <Navbar />
+          <Hamburguer />
+          {children}
+        </Providers>
       </body>
     </html>
   )

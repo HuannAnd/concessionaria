@@ -1,118 +1,100 @@
 @import "../../app/variables";
 
+$section-padding: clamp(5em, 21vh, 12em);
+$container-padding: clamp(2.5em, 8vw, 8em);
+$gap-padding: clamp(1.5em, 4vw, 2.5em);
+
 .About {
-  width: 1440px;
-  margin-inline: auto;
-  min-height: 100vh;
-  position: relative;
-  color: $primary-color;
+  display: block;
+  max-width: 100em;
+  padding: 0 var(--section-padding);
+  margin: 0 auto;
 
   display: flex;
-  justify-content: space-between;
+
+  @media (width <= 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.mainContainer {
-  max-width: 1440px;
-  margin-inline: auto;
+.subtitle {
+  display: block;
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: clamp(4em, 7vw, 96px);
+  color: rgba($color: #111, $alpha: 0.8);
+  padding-top: $container-padding;
+  margin-bottom: $space-sm;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  z-index: 20;
+
+  @media (width <=768px) {
+    text-align: center;
+    padding-top: 3vw;
+    // font-size: 8vw;
+
+  }
 }
 
 .left {
   position: relative;
   padding-bottom: 9vw;
-  width: 736px;
 
   flex: 1.36;
-
-  .recovery {
-    padding-left: 0;
-  }
-
-  h2 {
-    padding-top: 187px;
-    margin-bottom: 21px;
-
-    text-transform: uppercase;
-    font-size: 96px;
-    color: #111;
-
-    display: block;
-  }
-
-  small {
-    color: rgba($color: #111, $alpha: 0.6);
-    font-size: 11px;
-  }
-}
-
-.content {
-  display: flex;
-  padding-right: 3vw;
-  margin-bottom: 64px;
-
-  color: rgba($color: #111, $alpha: 0.8);
-
-  > p:first-child {
-    width: 90%;
-
-    font-size: 20px;
-    letter-spacing: -3%;
-    line-height: 150%;
-    font-weight: 500;
-
-    margin-right: 3vw;
-  }
-
-  > p:last-child {
-    font-size: 11px;
-    letter-spacing: -3%;
-    line-height: 150%;
-    font-weight: 100;
+  
+  @media (width <= 768px) {
+    flex: 1;
   }
 }
 
 .description {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 5px;
+  display: block;
+  width: 80%;
+  height: auto;
 
-  span {
-    overflow: hidden;
+  overflow: hidden;
+  margin-bottom: $space-sm;
+
+  @media (width <= 768px) {
+    text-align: center;
+    margin: 0 auto;
   }
 }
 
-.recovery {
-  position: absolute;
-  width: 100%;
-  padding: 3vw;
+.spanLine {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+}
 
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+.spanLineInner {
+  position: relative;
+  display: block;
 
-  font-weight: 200;
-  font-family: "Inter", sans-serif;
-
-  h5 {
-    font-weight: 100;
-    text-transform: uppercase;
-  }
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.75;
+  font-size: inherit;
+  color: rgba($color: #111, $alpha: 0.8);
 }
 
 .right {
   position: relative;
-  background: #111;
+  width: 539px;
 
   flex: 1;
 
-  width: 539px;
+  background: #eee;
+  box-shadow: 0 0 0 100vmax #eee;
+  clip-path: inset(0 -100vmax 0 0);
 
-  .recovery {
-    color: #fff;
+  @media (width <= 768px) {
+    width: 100%;
+    height: 50vh;
+    clip-path: inset(0 -100vmax);
+
+    flex: 1;
   }
 }
 
@@ -125,6 +107,11 @@
 
   height: 60vh;
   width: auto;
+
+  @media (width <= 768px) {
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
 }
 
 .image {
@@ -132,9 +119,13 @@
   height: 100%;
   clip-path: inset();
 
-
   background-position: center;
   background: url("/car-slide.png");
+
+  @media (width <= 768px) {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 .dotsListener {
@@ -154,14 +145,14 @@
 
       height: inherit;
       width: 120px;
-      color: $secondary-color;
+      color: $light-100;
 
       opacity: 0;
     }
 
     &:first-child {
       > button {
-        background: $secondary-color;
+        background: $light-100;
       }
 
       > span {
@@ -178,19 +169,6 @@
       border-radius: 100%;
     }
   }
-}
-
-.spanLine {
-  overflow: hidden;
-}
-
-.spanLineInner {
-  position: relative;
-  display: block;
-
-  font-weight: 500;
-  font-size: clamp(.7em, 1.3vw, 1.5em);
-  color: rgba($color: #111, $alpha: 0.8);
 }
 
 .moreInfo {
@@ -219,11 +197,43 @@
   right: $space-sm;
   transform: translateY(100%);
 
-  scale: .25;
+  scale: 0.25;
   height: 50vh;
-  
+  filter: invert(1);
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: $space-lg;
+
+  @media (width <= 768px) {
+    top: 0;
+    transform: none;
+
+    scale: .30;
+  }
+}
+
+.cta {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ctaLine {
+  height: 1px;
+  background-color: #111;
+  flex: 1;
+}
+
+.learnMore {
+  font-size: 16px;
+  letter-spacing: -3%;
+  font-weight: 400;
+  color: rgba($color: #111, $alpha: 0.8);
+
+  background-color: transparent;
+
+  flex: 1;
 }

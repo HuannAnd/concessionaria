@@ -1,9 +1,12 @@
 @import "/src/app/variables";
 
 .Hero {
-  width: 100vw;
   min-height: 100vh;
-  
+  max-width: 100em;
+  margin: 0 auto;
+  padding: 0 var(--section-padding);
+
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,13 +16,11 @@
   mix-blend-mode: multiply;
   z-index: 100;
 
-  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+  clip-path: inset(0 -100vmax);
 }
 
 .container {
-  max-width: 1440px;
-  min-width: 200px;
-  min-height: 100%;
+  max-width: 100em;
   margin-inline: auto;
 
   display: flex;
@@ -28,19 +29,6 @@
   align-items: center;
 
   z-index: 1;
-
-  h1 {
-    font-size: clamp(1em, 10vw, 200px);
-    text-align: center;
-    color: white;
-    text-transform: uppercase;
-
-    transition-duration: $time-to-resize;
-    transition-timing-function: $ease-to-resize;
-
-    margin-bottom: clamp(0.1em, 3vw, 64px);
-    z-index: 10;
-  }
 
   button {
     border: none;
@@ -62,10 +50,6 @@
 
     z-index: 2;
 
-    &:hover {
-      clip-path: inset(5%);
-    }
-
     &::before {
       position: absolute;
       top: 0;
@@ -74,7 +58,7 @@
       bottom: 0;
       content: "";
       width: 100%;
-      height: 100%     ;
+      height: 100%;
 
       background: #fff;
       transform: translateX(-100%);
@@ -84,6 +68,17 @@
       transform: translateX(0%);
     }
   }
+}
+
+.title {
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+
+  transition-duration: $time-to-resize;
+  transition-timing-function: $ease-to-resize;
+
+  z-index: 10;
 }
 
 .mainContainer {
@@ -131,19 +126,32 @@
 .optioner {
   width: auto;
   position: absolute;
-  bottom: 0;
-  left: 90%;
-  transform: translateX(-50%);
 
-  scale: .5;
+  scale: 1;
   gap: $space-lg;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-padding);
+
+  @media (width > 768px) {
+    top: 50%;
+    right: 0;
+    transform: translate(calc(-50% - 3vw), -50%);
+  }
+
+  @media (width <= 768px) {
+    left: 0;
+    top: none;
+    left: 50%;
+    bottom: 0;
+    flex-direction: row;
+    transform: translate(-50%, -100%) scale(.75);
+  }
 }
 
 .dot {
-  width: 12px;
+  width: 24px;
 }

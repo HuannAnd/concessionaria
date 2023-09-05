@@ -1,6 +1,14 @@
 // colors
-$primary-color: #111;
-$secondary-color: #fff;
+$dark-100: #202020;
+$dark-200: #151515;
+$dark-300: #111;
+
+$light-100: #fff;
+$light-200: #eee;
+$light-300: #ddd;
+$light-400: #cecece;
+
+$red: #ff0000;
 
 //text
 $darkPrimaryText: #111;
@@ -38,3 +46,11 @@ $space-lg: 9vw;
 $size-xs: 1.75vw;
 $size-sm: 3vw;
 $size-lg: 9vw;
+$section-padding: clamp(5em, 21vh, 12em);
+$container-padding: clamp(2.5em, 8vw, 8em);
+$gap-padding: clamp(1.5em, 4vw, 2.5em);
+
+@media (width <= 648px) {
+  $section-padding: clamp(5em, 21vh, 12em);
+  $container-padding: 6vw;
+}
