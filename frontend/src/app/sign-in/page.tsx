@@ -17,6 +17,7 @@ export default async function SignInPage() {
         <input type="text" className={styles.inputField} required />
         <label htmlFor="">Password</label>
         <input type="text" className={styles.inputField} required />
+        <button>Send User</button>
       </fieldset>
     </form>
   )

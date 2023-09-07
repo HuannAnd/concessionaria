@@ -4,10 +4,11 @@ services:
   # mongodb:
   next-app:
     container_name: next-app
-    image: next-js-app
+    image: next-js-image
     build: 
       context: ./next-app
       dockerfile: dev.Dockerfile
     ports:
       - 3000:3000
+    restart: always
   # backend:
