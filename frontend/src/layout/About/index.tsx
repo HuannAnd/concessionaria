@@ -36,7 +36,7 @@ export default function About() {
         <motion.p className={styles.description}>
           {text.split(" ").map(((phrase, index) => <span className={styles.spanLine}><motion.span className={styles.spanLineInner} initial={{ y: "100%" }} viewport={{ once: true }} whileInView={{ y: "0%", transition: { duration: .5, delay: (index * .005), ease: [1, 0.5, 0.25, 0.125] } }} transition={{ duration: 0 }} key={`w_${index}`}>{phrase}</motion.span></span>))}
         </motion.p>
-        <Cta>Learn More</Cta>
+        {/* <Cta href=''>Learn More</Cta> */}
       </article>
       <article className={styles.right}>
         <div className={styles.carousel}>

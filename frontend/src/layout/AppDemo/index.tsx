@@ -4,12 +4,15 @@ import styles from './style.module.scss'
 
 import Cta from '@/components/Cta';
 import MackBookMockup from '@/components/Mockups/MacbookMockup'
+import useSetLoad from '@/hooks/useSetLoading';
 
 interface AppDemoProps {
 
 }
 
 export default function AppDemo({ }: AppDemoProps) {
+  const setLoad = useSetLoad()
+
   return (
     <section className={styles.AppDemo}>
       <div className={styles.content}>
@@ -17,7 +20,7 @@ export default function AppDemo({ }: AppDemoProps) {
         <MackBookMockup />
         <div>
           <small className={styles.info}>Please get a free account on Turma Automóveis <strong>here</strong></small>
-          <Cta className={styles.cta}>Sign In</Cta>
+          <Cta href='/sign-in' className={styles.cta}>Sign In</Cta>
         </div>
       </div>
     </section>

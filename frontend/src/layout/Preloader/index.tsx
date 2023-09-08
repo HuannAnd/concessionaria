@@ -17,12 +17,13 @@ export default function Preloader({ amount = 3 }: PreloaderProps) {
     ["#ff0000", "#fff"],
     { clamp: false }
   )
-
+  
   return (
     <motion.div
       variants={slideUp}
       transition={{ duration: .8, ease: [0.76, 0, 0.24, 1] }}
       initial="closed"
+      
       exit="open"
       className={styles.Preloader}
     >

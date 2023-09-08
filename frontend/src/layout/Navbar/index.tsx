@@ -7,10 +7,11 @@ import styles from './style.module.scss'
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import useLenisScroll from '@/hooks/useLenisScroll';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 const links = [
   { title: "Home", href: "#" },
@@ -25,24 +26,33 @@ interface NavigationLinksProps
 
 export default function Navbar() {
   const navbar = useRef<HTMLDivElement>(null!)
-  const lenis = useLenisScroll();
+  const lenis = useLenisScroll()
+  const pathname = usePathname()
+
   console.log("lenis scroll value, into Navbar: ", lenis);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.to(navbar.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        start: 0,
-        end: window.innerHeight,
-        markers: true,
-        onLeaveBack: () => { gsap.to(navbar.current, { y: "0%" }) },
-        onEnter: () => { gsap.to(navbar.current, { y: "-75%", delay: 1 }) }
+  useLayoutEffect(() => {
+    if (pathname === "/") {
+      console.log("Gsap scroll firing")
+      gsap.registerPlugin(ScrollTrigger)
+      gsap.to(navbar.current, {
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: 0,
+          end: window.innerHeight,
+          markers: true,
+          onLeaveBack: () => { gsap.to(navbar.current, { y: "0%" }) },
+          onEnter: () => { gsap.to(navbar.current, { y: "-75%", delay: 1 }) }
 
-      }
-    })
+        }
+      })
+    }
+
+    return () => {
+      
+    }
   },
-    []
+    [pathname]
   )
 
   //linear-gradient(0deg, rgba(255, 255, 255, 0) 0%,rgba(0, 0, 0, 1) 100%)

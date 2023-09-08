@@ -1,28 +1,37 @@
 'use client';
 
-import { ForwardRefExoticComponent, forwardRef, useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './style.module.scss'
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { usePathname } from 'next/navigation';
 
 interface HamburguerProps { }
 
 export default function Hamburguer({ }: HamburguerProps) {
   const ref = useRef<HTMLButtonElement>(null!)
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.to(ref.current, {
-      scrollTrigger: {
-        start: 10,
-        end: window.innerHeight,
-        trigger: document.documentElement,
-        markers: false,
-        onLeave: () => { gsap.to(ref.current, { scale: 1, duration: .25, ease: "power1.out" }) },
-        onLeaveBack: () => { gsap.to(ref.current, { scale: 0, duration: .25, ease: "power1.out" }) }
-      }
-    })
-  })
+  const pathname = usePathname()
+  useEffect(() => {
+    console.log()
+    if (pathname === "/") {
+      gsap.registerPlugin(ScrollTrigger)
+      gsap.to(ref.current, {
+        scrollTrigger: {
+          start: 10,
+          end: window.innerHeight,
+          trigger: document.documentElement,
+          markers: false,
+          onLeave: () => { gsap.to(ref.current, { scale: 1, duration: .25, ease: "power1.out" }) },
+          onLeaveBack: () => { gsap.to(ref.current, { scale: 0, duration: .25, ease: "power1.out" }) }
+        }
+      })
+    } else {
+      gsap.to(ref.current, { scale: 1, duration: .25, ease: "power1.out" })
+    }
+  },
+    [pathname]
+  )
 
   return (
     <button ref={ref} className={styles.hamburguer}>

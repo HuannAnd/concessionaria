@@ -1,5 +1,6 @@
 import CursorProvider from './CursorContextProvider'
 import LenisScrollProvider from './LenisScrollProvider'
+import LoadingProvider from './LoadingProvider'
 
 
 interface ProvidersProps {
@@ -9,7 +10,9 @@ export default function Providers({ children }: ProvidersProps) {
 	return (
 		<CursorProvider>
 			<LenisScrollProvider>
-				{children}
+				<LoadingProvider>
+					{children}
+				</LoadingProvider>
 			</LenisScrollProvider>
 		</CursorProvider>
 	)
