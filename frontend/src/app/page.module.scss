@@ -1,0 +1,35 @@
+@import "variables";
+
+
+.recovery {
+  position: relative;
+  width: 100vw;
+  height: 15vh;
+
+  display: flex;
+}
+
+.left {
+  width: 60%;
+  height: 100%;
+  background: $light-200;
+  box-shadow: 0 0 0 100vmax $light-200;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+
+  background: $dark-300;
+  box-shadow: 0 0 0 100vmax #dddddd;
+  clip-path: inset(0 -100vmax);
+}
+
+.grayBar {
+  width: 100vw;
+  height: 15vh;
+
+  background-color: $dark-100;
+}

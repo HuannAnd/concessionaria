@@ -1,0 +1,26 @@
+@import "../../app/variables";
+
+.displayItemsHorizontal {
+  width: 100%;
+  height: 50dvh;
+  padding: 1.7vw 0;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  gap: var(--gap-padding);
+
+  @media (width <= 768px) {
+    height: 50dvh;
+
+    flex-direction: column;
+
+    gap: var(--gap-padding);
+
+  }
+}
+
+

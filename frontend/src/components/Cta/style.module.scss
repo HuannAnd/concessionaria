@@ -1,0 +1,35 @@
+.cta {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.innerline {
+  height: 1px;
+  background-color: rgba($color: #111, $alpha: 0.8);
+  flex: 1;
+}
+
+.innerText {
+  font-size: clamp(0.7em, 2.3vw, 1em);
+  letter-spacing: -3%;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: rgba($color: #111, $alpha: 0.8);
+
+  background-color: transparent;
+  
+  cursor: pointer;
+
+  flex: 1;
+}
+
+@media (width <= 768px) {
+  .cta {
+    width: 100%;
+  }
+}

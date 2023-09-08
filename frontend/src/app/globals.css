@@ -1,0 +1,106 @@
+:root {
+  --section-padding: clamp(5em, 21vh, 12em);
+  --container-padding: clamp(2.5em, 8vw, 8em);
+  --gap-padding: clamp(1.5em, 4vw, 2.5em);
+}
+
+@media (width <= 1024px) {
+  :root {
+    --section-padding: clamp(1em, 6vw, 7em);
+    --container-padding: 1.75vw;
+    --gap-padding: clamp(1.5em, 4vw, 2.5em);
+  }
+
+  p,
+  h5,
+  button,
+  span {
+    font-size: clamp(1rem, 3vw, 2.5rem);
+  }
+}
+
+strong {
+  text-decoration: underline;
+}
+
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: antialiased;
+}
+
+body {
+  cursor: wait;
+  overflow-x: hidden;
+}
+
+*::selection {
+  background: rgba(255, 0, 0, 1);
+  color: white;
+  text-shadow: none;
+}
+
+p,
+small,
+h5,
+strong,
+button,
+span {
+  font-family: "Inter", sans-serif;
+}
+
+h1,
+legend {
+  font-size: clamp(6rem, 10vw, 12.5rem);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(4rem, 8vw, 6rem);
+  text-transform: uppercase;
+}
+
+p,
+span,
+label,
+input {
+  -webkit-font-smoothing: antialiased;
+  font-size: clamp(1rem, 1.3vw, 2.5rem);
+  line-height: 1.45;
+}
+
+small {
+  font-size: clamp(0.6875rem, 1vw, 2rem);
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+html.lenis {
+  height: auto;
+  overflow-x: hidden;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
