@@ -43,6 +43,10 @@ body {
   text-shadow: none;
 }
 
+*::placeholder {
+  color: #1111117d;
+}
+
 p,
 small,
 h5,
