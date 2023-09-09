@@ -1,7 +1,20 @@
+import { futimesSync } from 'fs'
 import { NextResponse } from 'next/server'
 
-export async function GET(req: Request) {
-    return new Response("Hello World!", {
-        status: 200
-    })
+function sendUserToBckend() {
+
+}
+
+export async function POST(req: Request) {
+    try {
+        console.log("POST request body: ", req)
+        const { body } = req
+        const data = await fetch("http://localhost:8080/concessionaria/autenticacao/cadastro", {
+            body
+        })
+
+        const json = data.json();
+    } catch (error) {
+
+    }
 }

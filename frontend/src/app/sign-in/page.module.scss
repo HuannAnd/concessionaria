@@ -28,10 +28,20 @@
 }
 
 .input {
+  color: rgba($color: #111, $alpha: .6);
+
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+  ::placeholder {
+    color: rgba($color: #111, $alpha: .4);
+  }
 }
 
 .cta {
-  display: inline-block;
+  display: flex;
 
   @media (width <= 768px) {
     display: none;
