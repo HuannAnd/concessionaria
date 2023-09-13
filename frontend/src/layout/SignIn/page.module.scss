@@ -1,0 +1,78 @@
+@import "../../app/variables";
+
+.form {
+  max-width: 100em;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: var(--section-padding);
+}
+
+.title {
+  margin-bottom: $space-sm;
+  color: rgba($color: #111, $alpha: 0.8);
+}
+
+.field {
+  display: flex;
+  padding: var(--gap-padding) 0;
+  gap: $space-sm;
+
+  font-family: "Inter", sans-serif;
+
+  border-top: 1px solid #111;
+}
+
+.label {
+  display: block;
+  margin-bottom: $space-xs;
+}
+
+.input {
+  color: rgba($color: #111, $alpha: 0.6);
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+  ::placeholder {
+    color: rgba($color: #111, $alpha: 0.4);
+  }
+}
+
+.cta {
+  display: flex;
+
+  @media (width <= 768px) {
+    display: none;
+  }
+}
+
+.submit {
+  border: none;
+  background: #ff0000;
+  padding: 1.75vw 9vw;
+
+  font-size: 1.5rem;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+
+  cursor: pointer;
+
+  @media (width <= 768px) {
+    margin: 0 auto;
+  }
+}
+
+.bottom {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+
+  @media (width <= 768px) {
+    position: absolute;
+    width: calc(100% - 2 * var(--section-padding));
+    bottom: var(--section-padding);
+  }
+}

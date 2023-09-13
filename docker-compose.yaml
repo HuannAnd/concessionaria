@@ -6,9 +6,17 @@ services:
     container_name: next-app
     image: next-js-image
     build: 
-      context: ./next-app
+      context: ./frontend
       dockerfile: dev.Dockerfile
     ports:
       - 3000:3000
     restart: always
+  spring: 
+    container_name: spring-boot
+    build: 
+      context: ./backend
+      dockerfile: dev.Dockerfile
+    image: spring-app-image
+    ports:
+      - 8080:8080
   # backend:

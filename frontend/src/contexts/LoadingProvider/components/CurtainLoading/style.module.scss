@@ -1,4 +1,4 @@
-@import "../../app/variables";
+@import "../../../../app/variables";
 
 .Preloader {
   height: 100vh;
@@ -33,7 +33,7 @@
 
   z-index: 999;
 
-  // transform-origin: bottom;
+  transform-origin: bottom;
 }
 
 .slideOut {

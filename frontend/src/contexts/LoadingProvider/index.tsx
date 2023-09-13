@@ -1,56 +1,81 @@
 'use client';
 
-import { createContext, useCallback, useEffect, useState } from 'react'
+import { createContext, useState } from 'react'
 
-import { usePathname } from 'next/navigation'
 
-import Preloader from '@/layout/Preloader';
-
+import { usePathname, useRouter } from 'next/navigation'
 import { AnimatePresence } from 'framer-motion';
-import useLenisScroll from '@/hooks/useLenisScroll';
+
+import useLoading from './useLoading';
+import useLoadingStrategy from './useLoadingStrategy';
+
+
+import LoadingAnimation from './components/LoadingAnimation';
+import BaseLoadingProps from './components/BaseLoadingProps';
+import DotsLoading from './components/DotsLoading';
+
+import { BaseLoadingStrategy } from './strategies/BaseLoadingStrategy';
+import Orquestrator from './strategies'
+import DotsLoadingStrategy from './strategies/DotsLoadingStrategy';
 
 interface LoadingProviderProps {
   children: React.ReactNode
 }
 
-export const LoadingContext = createContext<(isLoading: boolean) => void>(() => { })
-const ANIMATION_DURATION_IN_MS = 3000
+enum AnimationsStrategies {
+  DOTS = "dots",
+  LETTERS = "letters"
+
+}
+
+export const MountingLoadingContext = createContext<(url: string) => void>(() => { })
+export const SetAnimationStrategyContext = createContext<(strategy: AnimationsStrategies) => void>(() => { })
+
+export const ANIMATION_DURATION_IN_MS = 1000
+export const ANIMATION_DURATION_IN_SECONDS = ANIMATION_DURATION_IN_MS / 1000
+
 export default function LoadingProvider({ children }: LoadingProviderProps) {
-  const [isLoading, setLoad] = useState(true)
+  const pathname = usePathname()
+  const router = useRouter()
 
-  const lenis = useLenisScroll()
-  const pathname = usePathname();
+  const background = useLoadingStrategy("background")
+  const [strategy, LoadingAnimation] = useLoadingStrategy(["dots", {}])
 
-  useEffect(() => {
-    function initLoading() {
-      setLoad(true)
-      lenis.scrollTo(0, { immediate: true, })
-      document.body.style.cursor = "wait";
-    }
+  const { mountingLoading, isLoading } = useLoading(pathname, background, route)
 
-    const cancellingLoading = () => setTimeout(() => {
-      setLoad(false)
-      document.body.style.cursor = "default";
+  async function previewLoading<
+    TBaseStrategy extends BaseLoadingStrategy,
+    TStrategyProps extends keyof TBaseStrategy
+  >(
+    url: string,
+    strategy: TBaseStrategy,
+    ...props: TStrategyProps[]
+  ) {
+    const newStrategy = Orquestrator.getStrategy(strategy)
 
-    }, ANIMATION_DURATION_IN_MS)
+    setAnimationStrategy([newStrategy, LoadingAnimation])
 
-    initLoading()
-    cancellingLoading()
-
-  },
-    [pathname]
-  )
-
-  const newSetLoad = useCallback((isLoading: boolean) => setLoad(isLoading), [])
+    document.body.style.cursor = "wait"
+    router.push(url)
+  }
 
   return (
-    <LoadingContext.Provider value={newSetLoad}>
-      <AnimatePresence mode='wait'>
+    <MountingLoadingContext.Provider value={mountingLoading}>
+      <AnimatePresence>
+        {/* <Preloader controls={controls} pathname={pathname} /> */}
         {
-          isLoading && <Preloader />
+          isLoading && (
+            <>
+              <LoadingAnimation strategy='background' controls={background.controls} />
+              {/* <LoadingAnimation strategy={animationStrategy} controls={route.controls} /> */}
+              <AnimationComponent controls={controls} />
+            </>
+          )
         }
+        {children}
       </AnimatePresence>
-      {children}
-    </LoadingContext.Provider>
+    </MountingLoadingContext.Provider>
   )
 }
+
+
