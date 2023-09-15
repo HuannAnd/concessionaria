@@ -12,7 +12,7 @@ import { LoadingProps } from './components/type';
 import useLoadingStrategy from './useLoadingStrategy';
 import LettersLoading from './components/LettersLoading';
 import BackgroundLoadingStrategy from './components/BackgroundLoading/anim';
-import AnimationsOrquestrator from './strategies';
+import AnimationsOrquestrator from './AnimationsOrquestrator';
 
 interface LoadingProviderProps {
   children: React.ReactNode

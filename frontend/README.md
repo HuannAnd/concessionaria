@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Tarefas:
 
-## Getting Started
+1. Configuração Inicial:
 
-First, run the development server:
+- [x] Configurar um novo projeto Next.js.
+- [x] Criar a estrutura básica de pastas e arquivos.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+2. Página de Início (Lista de Carros):
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [x] Criar uma página que exibe uma lista de carros disponíveis.
+- [] Fazer requisições para o backend para obter os dados dos carros.
+- [] Exibir os carros de forma atraente e responsiva.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Detalhes do Carro:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [] Criar uma página que exibe os detalhes de um carro selecionado.
+- [] Exibir informações como marca, modelo, ano, preço, etc.
+- [] Adicionar um botão para agendar um test drive.
 
-## Learn More
+4. Formulário de Contato:
 
-To learn more about Next.js, take a look at the following resources:
+- [] Criar um formulário de contato para os usuários solicitarem mais informações sobre um carro.
+- [] Validar os campos do formulário antes de enviar.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Agendamento de Test Drive:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [] Criar uma página com um formulário para agendar um test drive.
+- [] Validar os campos do formulário antes de enviar.
 
-## Deploy on Vercel
+6. Estilização com SCSS:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [x] Utilizar SCSS para estilizar as páginas e componentes.
+- [x] Criar estilos consistentes e atraentes para toda a aplicação.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+7. Responsividade:
 
-// resolve merge
+- [x] Garantir que a aplicação seja responsiva em diferentes dispositivos.
+- [] Testar e ajustar os estilos para diferentes tamanhos de tela.

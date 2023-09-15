@@ -24,7 +24,7 @@ export default function SignIn() {
 
   return (
     <form className={styles.form} onSubmit={onSubmit}>
-      <legend className={styles.title}>Sign in</legend>
+      <legend className={styles.title}>Contact</legend>
       <fieldset>
         <div className={styles.field}>
           <small>.01</small>
@@ -51,7 +51,7 @@ export default function SignIn() {
           <small>.04</small>
           <div>
             <label className={styles.label} htmlFor="name">Confirm Password</label>
-            <input className={styles.input} required placeholder='******' name='name' type="password" />
+            <textarea></textarea>
           </div>
         </div>
       </fieldset>

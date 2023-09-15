@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react"
 
 import { useAnimationControls } from "framer-motion"
-import AnimationsOrquestrator from "./strategies"
+import AnimationsOrquestrator from "./AnimationsOrquestrator"
 
 import { Strategy } from "./strategies/type"
 import { LoadingProps } from "./components/type"

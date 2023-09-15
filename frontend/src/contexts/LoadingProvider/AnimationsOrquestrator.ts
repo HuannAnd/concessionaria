@@ -1,8 +1,10 @@
 import { AnimationControls } from "framer-motion";
-import BackgroundLoadingStrategy from "../components/BackgroundLoading/anim";
-import { BaseLoadingStrategy } from "../components/BaseLoadingStrategy";
-import DotsLoadingStrategy from "../components/DotsLoading/anim";
-import LettersLoadingStrategy from "../components/LettersLoading/anim";
+
+import BaseLoadingStrategy from "./components/BaseLoadingStrategy";
+
+import BackgroundLoadingStrategy from "./components/BackgroundLoading/anim";
+import DotsLoadingStrategy from "./components/DotsLoading/anim";
+import LettersLoadingStrategy from "./components/LettersLoading/anim";
 
 export default class AnimationsOrquestrator {
   private strategies: BaseLoadingStrategy[]

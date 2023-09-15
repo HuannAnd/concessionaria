@@ -6,7 +6,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { ANIMATION_DURATION_IN_MS } from './index'
 
 import useLenisScroll from '@/hooks/useLenisScroll';
-import { Strategy } from './strategies/type';
+import { Strategy } from './components/type';
 
 
 interface IStrategie {

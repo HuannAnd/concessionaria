@@ -1,4 +1,4 @@
-import SignIn from '@/layout/SignIn';
+import SignIn from '@/layout/Contact';
 
 // import wait from '@/utils/wait'
 

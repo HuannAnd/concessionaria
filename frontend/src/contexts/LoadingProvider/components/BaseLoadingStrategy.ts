@@ -2,7 +2,7 @@ import { AnimationControls } from 'framer-motion'
 
 type TAnimationKey = "dots" | "letters" | "background"
 
-export abstract class BaseLoadingStrategy {
+export default abstract class BaseLoadingStrategy {
   constructor(
     public controls: AnimationControls,
     public animation: TAnimationKey

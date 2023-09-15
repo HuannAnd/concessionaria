@@ -20,7 +20,7 @@ export default function AppDemo({ }: AppDemoProps) {
         <MackBookMockup />
         <div>
           <small className={styles.info}>Please get a free account on Turma Automóveis <strong>here</strong></small>
-          <Cta action={() => mountingLoadingTo("/sign-in", "dots", { amount: 3 })} className={styles.cta}>Sign In</Cta>
+          <Cta action={() => mountingLoadingTo("/contact", "dots", { amount: 3 })} className={styles.cta}>Sign In</Cta>
         </div>
       </div>
     </section>

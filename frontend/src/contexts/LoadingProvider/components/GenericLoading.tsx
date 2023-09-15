@@ -8,7 +8,7 @@ import CurtainLoading from "./BackgroundLoading";
 
 import { LoadingProps, TAnimatioKey, Strategy } from "./type";
 import { AnimationControls, useAnimate } from "framer-motion";
-import AnimationsOrquestrator from '../strategies';
+import AnimationsOrquestrator from '../AnimationsOrquestrator';
 
 export default function GenericLoading<
   TStrategyValue extends TAnimatioKey,

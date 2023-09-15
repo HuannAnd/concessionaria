@@ -1,5 +1,5 @@
 import { AnimationControls } from "framer-motion";
-import { BaseLoadingStrategy } from "../BaseLoadingStrategy";
+import BaseLoadingStrategy from "../BaseLoadingStrategy";
 
 import { Power3 } from 'gsap'
 
