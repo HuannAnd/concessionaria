@@ -1,77 +1,73 @@
 'use client';
 
-import { createContext, useState } from 'react'
+import { createContext, useLayoutEffect, useState } from 'react'
 
-
-import { usePathname, useRouter } from 'next/navigation'
 import { AnimatePresence } from 'framer-motion';
 
-import useLoading from './useLoading';
+import useLoadingWithStrategies from './useLoadingWithStrategies';
+
+import GenericLoading from './components/GenericLoading';
+import { LoadingProps } from './components/type';
+
 import useLoadingStrategy from './useLoadingStrategy';
-
-
-import LoadingAnimation from './components/LoadingAnimation';
-import BaseLoadingProps from './components/BaseLoadingProps';
-import DotsLoading from './components/DotsLoading';
-
-import { BaseLoadingStrategy } from './strategies/BaseLoadingStrategy';
-import Orquestrator from './strategies'
-import DotsLoadingStrategy from './strategies/DotsLoadingStrategy';
+import LettersLoading from './components/LettersLoading';
+import BackgroundLoadingStrategy from './components/BackgroundLoading/anim';
+import AnimationsOrquestrator from './strategies';
 
 interface LoadingProviderProps {
   children: React.ReactNode
 }
 
-enum AnimationsStrategies {
-  DOTS = "dots",
-  LETTERS = "letters"
+type TAnimationKey = "dots" | "letters" | "background"
 
-}
-
-export const MountingLoadingContext = createContext<(url: string) => void>(() => { })
-export const SetAnimationStrategyContext = createContext<(strategy: AnimationsStrategies) => void>(() => { })
+export const MountingLoadingContext = createContext<
+  <TStrategyValue extends TAnimationKey, TStrategyProps extends Omit<LoadingProps<TStrategyValue>, "controls">>(
+    href: string,
+    newStrategy: TStrategyValue,
+    newProps: TStrategyProps
+  ) => void
+>(() => { })
+export const LoadingContext = createContext<boolean>({} as boolean)
 
 export const ANIMATION_DURATION_IN_MS = 1000
 export const ANIMATION_DURATION_IN_SECONDS = ANIMATION_DURATION_IN_MS / 1000
 
 export default function LoadingProvider({ children }: LoadingProviderProps) {
-  const pathname = usePathname()
-  const router = useRouter()
+  const [path, setPath] = useState("/")
+  const background = useLoadingStrategy("background", {})
+  const { loading, setProps, setStrategy } = useLoadingStrategy("dots", { amount: 3 })
 
-  const background = useLoadingStrategy("background")
-  const [strategy, LoadingAnimation] = useLoadingStrategy(["dots", {}])
+  const transitionTo = useLoadingWithStrategies(background.loading.strategy, loading.strategy)
 
-  const { mountingLoading, isLoading } = useLoading(pathname, background, route)
-
-  async function previewLoading<
-    TBaseStrategy extends BaseLoadingStrategy,
-    TStrategyProps extends keyof TBaseStrategy
+  const mountLoading = async <
+    TStrategyValue extends TAnimationKey,
+    TStrategyProps extends Omit<LoadingProps<TStrategyValue>, "controls">
   >(
-    url: string,
-    strategy: TBaseStrategy,
-    ...props: TStrategyProps[]
-  ) {
-    const newStrategy = Orquestrator.getStrategy(strategy)
-
-    setAnimationStrategy([newStrategy, LoadingAnimation])
-
-    document.body.style.cursor = "wait"
-    router.push(url)
+    href: string,
+    newStrategy: TStrategyValue,
+    newProps: TStrategyProps
+  ) => {
+    console.log("mountLoading has fired")
+    setProps(newProps)
+    setStrategy(newStrategy)
+    setPath(href)
   }
 
+  useLayoutEffect(() => {
+    transitionTo(path)
+
+    return () => {
+      (async () => {
+        await loading.strategy.slideOut()
+      })()
+    }
+  }, [path])
+
   return (
-    <MountingLoadingContext.Provider value={mountingLoading}>
-      <AnimatePresence>
-        {/* <Preloader controls={controls} pathname={pathname} /> */}
-        {
-          isLoading && (
-            <>
-              <LoadingAnimation strategy='background' controls={background.controls} />
-              {/* <LoadingAnimation strategy={animationStrategy} controls={route.controls} /> */}
-              <AnimationComponent controls={controls} />
-            </>
-          )
-        }
+    <MountingLoadingContext.Provider value={mountLoading}>
+      <AnimatePresence mode='wait'>
+        <GenericLoading strategy={background.loading.strategy} props={background.loading.props} />
+        <GenericLoading strategy={loading.strategy} props={loading.props} />
         {children}
       </AnimatePresence>
     </MountingLoadingContext.Provider>

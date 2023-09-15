@@ -1,5 +1,3 @@
-"use client"
-
 import Hero from "@/layout/Hero"
 import About from "@/layout/About"
 import Cars from "@/layout/Cars"
@@ -8,8 +6,9 @@ import Large from '@/layout/Large'
 import AppDemo from '@/layout/AppDemo'
 
 import styles from './page.module.scss'
+import wait from "@/utils/wait"
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <Hero />

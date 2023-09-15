@@ -1,5 +1,5 @@
 import BaseLoadingProps from './components/BaseLoadingProps'
-import CurtainLoading from './components/CurtainLoading'
+import CurtainLoading from './components/BackgroundLoading'
 import DotsLoading from './components/DotsLoading'
 import LettersLoading from './components/LettersLoading'
 

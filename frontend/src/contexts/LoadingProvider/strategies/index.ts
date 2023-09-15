@@ -1,22 +1,26 @@
-import BackgroundLoadingStrategy from "./BackgroundLoadingStrategy";
-import { BaseLoadingStrategy } from "./BaseLoadingStrategy";
-import DotsLoadingStrategy from "./DotsLoadingStrategy";
-import LettersLoadingStrategy from "./LettersLoadingStrategy";
+import { AnimationControls } from "framer-motion";
+import BackgroundLoadingStrategy from "../components/BackgroundLoading/anim";
+import { BaseLoadingStrategy } from "../components/BaseLoadingStrategy";
+import DotsLoadingStrategy from "../components/DotsLoading/anim";
+import LettersLoadingStrategy from "../components/LettersLoading/anim";
 
-class AnimationsOrquestrator {
+export default class AnimationsOrquestrator {
+  private strategies: BaseLoadingStrategy[]
   constructor(
-    private strategies = [
-      DotsLoadingStrategy,
-      LettersLoadingStrategy,
-      BackgroundLoadingStrategy
+    private controls: AnimationControls,
+  ) {
+    this.strategies = [
+      new DotsLoadingStrategy(this.controls),
+      new LettersLoadingStrategy(this.controls),
+      new BackgroundLoadingStrategy(this.controls)
     ]
-  ) { }
 
-  getStrategy(strategy: string): BaseLoadingStrategy {
-    let currentStrategy = (this.strategies.find(x => x.animation === strategy))!
+  }
 
-    return currentStrategy
+  getStrategy(strategy: "dots" | "background" | "letters"): BaseLoadingStrategy {
+    let Strategy = this.strategies.find(x => x.animation === strategy)!
+    Strategy.assignControls(this.controls)
+
+    return Strategy
   }
 }
-
-export default new AnimationsOrquestrator()

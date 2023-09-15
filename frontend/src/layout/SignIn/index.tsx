@@ -1,10 +1,13 @@
 "use client";
 
+import usePrepareToView from '@/hooks/useRedirectWithLoading';
 import styles from './page.module.scss'
 
 import Cta from '@/components/Cta'
 
 export default function SignIn() {
+  const mountLoading = usePrepareToView()
+
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
@@ -53,7 +56,7 @@ export default function SignIn() {
         </div>
       </fieldset>
       <footer className={styles.bottom}>
-        <Cta className={styles.cta} href="/">Go home</Cta>
+        <Cta className={styles.cta} action={() => mountLoading("/", "dots", { amount: 3 })}>Go home</Cta>
         <button className={styles.submit}>Confirm</button>
       </footer>
     </form>

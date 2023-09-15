@@ -1,24 +1,34 @@
+import { Dispatch, SetStateAction, useState } from "react"
 
-import AnimationsOrquestrator from './strategies'
+import { useAnimationControls } from "framer-motion"
+import AnimationsOrquestrator from "./strategies"
 
-import BaseLoadingProps from './components/BaseLoadingProps';
-import { BaseLoadingStrategy } from './strategies/BaseLoadingStrategy';
+import { Strategy } from "./strategies/type"
+import { LoadingProps } from "./components/type"
 
-import { useAnimationControls } from "framer-motion";
-import useStrategyComponent, { LoadingComponent } from './useStrategyComponent';
+type TUseStrategyResult<T> = {
+  loading: {
+    strategy: any,
+    props: any
+  },
+  setProps: any,
+  setStrategy: any
+}
 
-export default function useLoadingStrategy(strategy: string): [BaseLoadingStrategy, LoadingComponent] {
+export default function useStrategy<T extends "dots" | "letters" | "background">(intialStrategy: T, initialProps: Omit<LoadingProps<T>, "controls">): TUseStrategyResult<T> {
   const controls = useAnimationControls()
+  const [strategy, setStrategy] = useState<"dots" | "letters" | "background">(intialStrategy)
+  const [props, setProps] = useState(initialProps)
+  const Orquestrator = new AnimationsOrquestrator(controls)
 
-  const AnimationComponent = useStrategyComponent(strategy)
-  const newStrategy = AnimationsOrquestrator.getStrategy(strategy)
+  const Strategy = Orquestrator.getStrategy(strategy)
 
-  type AnimationComponentProps = React.ComponentProps<LoadingComponent>;
-
-  return [newStrategy, AnimationComponent]
   return {
-    strategy: "",
-    Animation: "",
-    props: ""
+    loading: {
+      strategy: Strategy,
+      props,
+    },
+    setProps,
+    setStrategy
   }
 }

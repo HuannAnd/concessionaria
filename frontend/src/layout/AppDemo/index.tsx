@@ -4,14 +4,14 @@ import styles from './style.module.scss'
 
 import Cta from '@/components/Cta';
 import MackBookMockup from '@/components/Mockups/MacbookMockup'
-import usePrepareToView from '@/hooks/usePrepareToView'
+import useRedirectWithLoading from '@/hooks/useRedirectWithLoading'
 
 interface AppDemoProps {
 
 }
 
 export default function AppDemo({ }: AppDemoProps) {
-  const mountingLoadingTo = usePrepareToView()
+  const mountingLoadingTo = useRedirectWithLoading()
 
   return (
     <section className={styles.AppDemo}>
@@ -20,8 +20,8 @@ export default function AppDemo({ }: AppDemoProps) {
         <MackBookMockup />
         <div>
           <small className={styles.info}>Please get a free account on Turma Automóveis <strong>here</strong></small>
-          <Cta href='/sign-in' className={styles.cta}>Sign In</Cta>
-      </div>
+          <Cta action={() => mountingLoadingTo("/sign-in", "dots", { amount: 3 })} className={styles.cta}>Sign In</Cta>
+        </div>
       </div>
     </section>
   )
