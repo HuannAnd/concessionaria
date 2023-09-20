@@ -11,47 +11,44 @@ import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.persistence.Id;
 
 @Document(collection = "Cliente")
-public class Usuarios implements UserDetails{
+public class Usuarios implements UserDetails {
 
     @Id
     private String id;
-    private String login;
-    private String senha;
+    private String email;
+    private String primeiroNome;
     private UserRoles role;
 
-    
-    public Usuarios(String login, String senha, UserRoles role) {
-        this.login = login;
-        this.senha = senha;
+    public Usuarios(String primeiroNome, String email, UserRoles role) {
+        this.primeiroNome = primeiroNome;
+        this.email = email;
         this.role = role;
     }
 
-    public Usuarios(String id, String login,String senha,UserRoles role) {
-        this.id = id;
-        this.login = login;
-        this.senha = senha;
-        this.role = role;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-    public void setLogin(String login) {
-        this.login = login;
-    }
-    public String getSenha() {
-        return senha;
-    }
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
     public String getId() {
         return id;
     }
+
     public void setId(String id) {
         this.id = id;
     }
-    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getprimeiroNome() {
+        return primeiroNome;
+    }
+
+    public void setprimeiroNome(String primeiroNome) {
+        this.primeiroNome = primeiroNome;
+    }
+
     public UserRoles getRole() {
         return role;
     }
@@ -62,39 +59,41 @@ public class Usuarios implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-       
-        if(this.role == UserRoles.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
-        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+
+        if (this.role == UserRoles.ADMIN)
+            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+        else
+            return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
-    
+
     @Override
     public String getPassword() {
-       
-        return senha;
+
+        return null;
     }
 
     @Override
     public String getUsername() {
-       
-        return login;
+
+        return primeiroNome;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-       
+
         return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-       
+
         return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-       
-       return true;
+
+        return true;
     }
 
     @Override

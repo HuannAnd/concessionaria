@@ -1,5 +1,5 @@
 package com.concecionaria.concessionariabackend.Usuarios;
 
-public record AuthenticationDTO(String login, String senha) {
+public record AuthenticationDTO(String nome, String email) {
 
 }

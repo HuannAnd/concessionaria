@@ -6,5 +6,5 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.concecionaria.concessionariabackend.Usuarios.Usuarios;
 
 public interface UsuariosRepository extends MongoRepository<Usuarios, String>{
-    UserDetails findByLogin(String login);
+    UserDetails findByEmail(String email);
 }

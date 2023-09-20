@@ -4,7 +4,7 @@ services:
   # mongodb:
   next-app:
     container_name: next-app
-    image: next-js-image
+    image: next-app-image
     build: 
       context: ./next-app
       dockerfile: dev.Dockerfile
