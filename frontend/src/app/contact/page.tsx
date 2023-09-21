@@ -1,9 +1,7 @@
-import SignIn from '@/layout/Contact';
+import Contact from './_layouts/Contact';
 
-// import wait from '@/utils/wait'
-
-export default async function SignInPage() {
+export default async function ContactPage() {
   return (
-    <SignIn />
+    <Contact />
   )
 }

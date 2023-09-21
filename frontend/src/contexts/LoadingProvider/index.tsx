@@ -13,6 +13,7 @@ import useLoadingStrategy from './useLoadingStrategy';
 import LettersLoading from './components/LettersLoading';
 import BackgroundLoadingStrategy from './components/BackgroundLoading/anim';
 import AnimationsOrquestrator from './AnimationsOrquestrator';
+import { useRouter } from 'next/router';
 
 interface LoadingProviderProps {
   children: React.ReactNode
@@ -33,9 +34,11 @@ export const ANIMATION_DURATION_IN_MS = 1000
 export const ANIMATION_DURATION_IN_SECONDS = ANIMATION_DURATION_IN_MS / 1000
 
 export default function LoadingProvider({ children }: LoadingProviderProps) {
-  const [path, setPath] = useState("/")
+  // const [path, setPath] = useState("/")
   const background = useLoadingStrategy("background", {})
   const { loading, setProps, setStrategy } = useLoadingStrategy("dots", { amount: 3 })
+
+  // const router = useRouter()
 
   const transitionTo = useLoadingWithStrategies(background.loading.strategy, loading.strategy)
 
@@ -50,18 +53,19 @@ export default function LoadingProvider({ children }: LoadingProviderProps) {
     console.log("mountLoading has fired")
     setProps(newProps)
     setStrategy(newStrategy)
-    setPath(href)
+
+    transitionTo(href)
   }
 
   useLayoutEffect(() => {
-    transitionTo(path)
+    // transitionTo(path)
 
     return () => {
       (async () => {
         await loading.strategy.slideOut()
       })()
     }
-  }, [path])
+  }, [])
 
   return (
     <MountingLoadingContext.Provider value={mountLoading}>

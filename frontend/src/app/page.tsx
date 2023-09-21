@@ -1,12 +1,11 @@
-import Hero from "@/layout/Hero"
-import About from "@/layout/About"
-import Cars from "@/layout/Cars"
-import Executive from '@/layout/Executive'
-import Large from '@/layout/Large'
-import AppDemo from '@/layout/AppDemo'
+import Hero from "./_layouts/Hero"
+import About from "./_layouts/About"
+import Cars from "./_layouts/Cars"
+import Executive from './_layouts/Executive'
+import Large from './_layouts/Large'
+import AppDemo from './_layouts/AppDemo'
 
 import styles from './page.module.scss'
-import wait from "@/utils/wait"
 
 export default async function Home() {
   return (

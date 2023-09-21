@@ -1,0 +1,22 @@
+.History {
+  position: fixed;
+  top: 3vw;
+  left: 3vw;
+  height: 15vh;
+  aspect-ratio: 1/ 1;
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+
+  background-color: #ff0000;
+
+  border-radius: 100%;
+  z-index: 10;
+}
+
+.icon {
+  min-width: 100%;
+  aspect-ratio: 1/1;
+  rotate: -90deg;
+}

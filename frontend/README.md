@@ -2,7 +2,7 @@ Tarefas:
 
 1. Configuração Inicial:
 
--  Configurar um novo projeto Next.js.
+- ✔ Configurar um novo projeto Next.js.
 - ✔ Criar a estrutura básica de pastas e arquivos.
 
 2. Página de Início (Lista de Carros):

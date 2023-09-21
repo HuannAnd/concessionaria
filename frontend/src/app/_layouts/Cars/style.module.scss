@@ -1,0 +1,210 @@
+@import "../../../app/variables";
+
+.Cars {
+  max-width: 100em;
+  margin: 0 auto;
+  padding: var(--section-padding) var(--section-padding);
+
+  display: flex;
+  justify-content: space-between;
+
+  background-color: #ddd;
+  box-shadow: 0 0 0 100vmax #ddd;
+  clip-path: inset(0 -100vmax);
+  gap: $space-lg;
+
+  color: $light-100;
+
+  @media (width <= 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.title {
+  font-size: clamp(5em, 7vw, 96px);
+  color: $dark-100;
+  text-transform: uppercase;
+  vertical-align: top;
+
+  display: inline-block;
+  margin-bottom: auto;
+  transform: translateY(-25%);
+
+  transition-duration: $time-to-resize;
+  transition-timing-function: $ease-to-resize;
+
+  @media (width <= 768px) {
+    text-align: center;
+  }
+}
+
+.text {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+
+  @media (width <= 768px) {
+    width: 50%;
+  }
+}
+
+.innerText {
+  width: 450px;
+  display: block;
+
+  float: right;
+}
+
+.innerTextUp {
+  // font-size: 20px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #111;
+
+  margin-bottom: $size-xs;
+
+  @media (width <= 768px) {
+    text-align: center;
+  }
+}
+
+.innerTextDown {
+  float: right;
+
+  font-weight: 200;
+  line-height: 1.45;
+  color: #1111118f;
+
+  @media (width <= 768px) {
+    text-align: center;
+  }
+}
+
+.options {
+  width: 100%;
+  padding: $size-sm;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  border-bottom: 1px solid $light-100;
+}
+
+.carType {
+  opacity: 0.5;
+
+  transition-duration: $time-to-resize;
+  transition-timing-function: $ease-to-resize;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.carousel {
+  width: 100%;
+  height: 50vh;
+  margin-top: $space-sm;
+  padding-inline: 10vw;
+
+  background: #050505;
+}
+
+.item {
+  height: 100%;
+  width: 134px;
+  background: transparent;
+
+  overflow: hidden;
+  transition: $time-to-resize $ease-to-resize;
+
+  box-shadow: 0 0 10px #1111117a;
+
+  cursor: pointer;
+  filter: brightness(0.5);
+
+  &:hover {
+    filter: brightness(1);
+  }
+}
+
+.carImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  scale: 1.2;
+
+  object-fit: cover;
+}
+
+.subtitle {
+  font-size: 96px;
+  text-transform: uppercase;
+  color: #1111119c;
+
+  padding-block: $space-sm;
+  margin-inline: $space-sm;
+
+  &:nth-of-type(2) {
+    color: #111;
+  }
+}
+
+.executive {
+  padding-bottom: $space-lg;
+
+  background-color: #eee;
+  clip-path: inset(0 -100vmax);
+  box-shadow: 0 0 0 100vmax #eee;
+}
+
+.executiveExplain {
+  // font-size: 20px;
+  font-weight: 500;
+  line-height: 175%;
+  color: #111;
+
+  width: 70%;
+  margin-top: $space-sm;
+  padding-left: $space-sm;
+  margin-bottom: $space-sm;
+}
+
+.large {
+  background-color: $light-100;
+  clip-path: inset(0 -100vmax);
+  box-shadow: 0 0 0 100vmax $light-100;
+}
+
+.largeExplain {
+  // font-size: 20px;
+  font-weight: 500;
+  line-height: 175%;
+  color: #111;
+
+  width: 70%;
+  float: right;
+  margin-top: $space-sm;
+  padding-right: $space-sm;
+  margin-bottom: $space-sm;
+}
+
+.toRight,
+.toRight {
+  width: 50%;
+}
+
+.toLeft {
+  margin-left: $space-sm;
+}
+
+.toRight {
+  margin-right: $space-sm;
+  margin-left: auto;
+}
