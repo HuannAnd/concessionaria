@@ -1,4 +1,4 @@
-package com.concecionaria.concessionariabackend.Controller;
+package com.concecionaria.concessionariabackend.Controllers;
 
 import java.util.List;
 
@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.concecionaria.concessionariabackend.CarroRepository;
-import com.concecionaria.concessionariabackend.EntidadeDeConsulta.Carros;
+
+import com.concecionaria.concessionariabackend.EntidadesDeConsulta.Carros;
+import com.concecionaria.concessionariabackend.Repositorios.CarroRepository;
 
 @RestController
-@RequestMapping("carros")
+@RequestMapping("/concessionaria/carros")
 @Service
 public class CarroController {
 
@@ -31,7 +32,7 @@ public class CarroController {
     public List<Carros> procurarPorMarca(@PathVariable String marca) {
         List<Carros> CarrosPorMarca = Repository.findByMarca(marca);
 
-        return CarrosPorMarca;
+        return CarrosPorMarca; 
     }
 
 }

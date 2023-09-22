@@ -49,7 +49,7 @@ Tarefas:
 - Criar modelos (entidades) para representar os carros e agendamentos.
 2. Rotas para Carros:
 
-- riar rotas para obter a lista de carros disponíveis.
+- Criar rotas para obter a lista de carros disponíveis.
 - Implementar a lógica para buscar os carros no banco de dados.
 3. Rotas para Agendamentos:
 
