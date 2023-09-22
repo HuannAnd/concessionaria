@@ -1,14 +1,20 @@
 version: '3'
 
 services:
-  # mongodb:
-  next-app:
-    container_name: next-app
-    image: next-app-image
-    build: 
-      context: ./next-app
+  # # mongodb:
+  # next-app:
+  #   container_name: next-app
+  #   image: next-app-image
+  #   build: 
+  #     # context: ./next-app
+  #     dockerfile: dev.Dockerfile
+  #   ports:
+  #     - 3000:3000
+  #   restart: always
+  backend:
+    build:
+      context: ./backend/concessionaria-backend
       dockerfile: dev.Dockerfile
-    ports:
-      - 3000:3000
-    restart: always
-  # backend:
+    image: concessionaria-backend
+    ports: 
+      - 8080:8080
