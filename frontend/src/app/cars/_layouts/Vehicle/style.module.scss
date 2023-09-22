@@ -1,0 +1,87 @@
+@import "/src/app/variables";
+
+.Vehicle {
+  min-height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: transparent;
+
+  margin-inline: auto;
+  z-index: 100;
+
+  clip-path: inset(0 -100vmax);
+  opacity: .8;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100dvh;
+
+  object-fit: cover;
+  object-position: top;
+
+  z-index: -1;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  width: 100%;
+  padding: var(--container-padding);
+
+  > ::after {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+
+    background: rgb(0, 0, 0, 0.45);
+    background-blend-mode: color-burn;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: darken;
+
+    z-index: -1;
+  }
+}
+
+.model {
+  font-size: 250px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 0.8;
+  text-transform: uppercase;
+  letter-spacing: -30px;
+
+  color: #fff;
+}
+
+.brand {
+  color: #ffffff6e;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  color: #fff;
+}
+
+.cta {
+  filter: invert(1);
+}

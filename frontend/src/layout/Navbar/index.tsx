@@ -1,24 +1,21 @@
 "use client";
 
-// import Image from 'next/image'
-
-import Hamburguer from '@/components/Hamburguer';
 import styles from './style.module.scss'
 
+import useLenisScroll from '@/hooks/useLenisScroll';
+import { usePathname } from 'next/navigation';
+import { useLayoutEffect, useRef } from 'react';
+
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { useLayoutEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import useLenisScroll from '@/hooks/useLenisScroll';
 import { motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
 
 const links = [
   { title: "Home", href: "#" },
-  { title: "About", href: "#about" },
   { title: "Cars", href: "#cars" },
-  { title: "Works", href: "#works" },
-  { title: "FAQ", href: "#faq" }
+  { title: "Contact", href: "#Contact" },
+  { title: "Test Drive", href: "#test-drive" }
 ]
 
 interface NavigationLinksProps
@@ -40,7 +37,7 @@ export default function Navbar() {
           trigger: document.documentElement,
           start: 0,
           end: window.innerHeight,
-          markers: true,
+          // markers: true,
           onLeaveBack: () => { gsap.to(navbar.current, { y: "0%" }) },
           onEnter: () => { gsap.to(navbar.current, { y: "-75%", delay: 1 }) }
 

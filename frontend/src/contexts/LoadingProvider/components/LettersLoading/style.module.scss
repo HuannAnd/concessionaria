@@ -1,0 +1,28 @@
+.LettersLoading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 999;
+}
+
+.spanText {
+  display: inline-flex;
+
+  font-size: 25px;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+.spanInnerText {
+  display: block;
+  position: relative;
+  transform: translateY(-100%);
+  color: white;
+
+  font-size: 140px;
+  font-weight: 500;
+  font-family: inherit;
+
+}

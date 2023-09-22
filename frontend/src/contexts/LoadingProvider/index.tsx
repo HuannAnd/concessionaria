@@ -1,56 +1,81 @@
 'use client';
 
-import { createContext, useCallback, useEffect, useState } from 'react'
-
-import { usePathname } from 'next/navigation'
-
-import Preloader from '@/layout/Preloader';
+import { createContext, useLayoutEffect, useState } from 'react'
 
 import { AnimatePresence } from 'framer-motion';
-import useLenisScroll from '@/hooks/useLenisScroll';
+
+import useLoadingWithStrategies from './useLoadingWithStrategies';
+
+import GenericLoading from './components/GenericLoading';
+import { LoadingProps } from './components/type';
+
+import useLoadingStrategy from './useLoadingStrategy';
+import LettersLoading from './components/LettersLoading';
+import BackgroundLoadingStrategy from './components/BackgroundLoading/anim';
+import AnimationsOrquestrator from './AnimationsOrquestrator';
+import { useRouter } from 'next/router';
 
 interface LoadingProviderProps {
   children: React.ReactNode
 }
 
-export const LoadingContext = createContext<(isLoading: boolean) => void>(() => { })
-const ANIMATION_DURATION_IN_MS = 3000
+type TAnimationKey = "dots" | "letters" | "background"
+
+export const MountingLoadingContext = createContext<
+  <TStrategyValue extends TAnimationKey, TStrategyProps extends Omit<LoadingProps<TStrategyValue>, "controls">>(
+    href: string,
+    newStrategy: TStrategyValue,
+    newProps: TStrategyProps
+  ) => void
+>(() => { })
+export const LoadingContext = createContext<boolean>({} as boolean)
+
+export const ANIMATION_DURATION_IN_MS = 1000
+export const ANIMATION_DURATION_IN_SECONDS = ANIMATION_DURATION_IN_MS / 1000
+
 export default function LoadingProvider({ children }: LoadingProviderProps) {
-  const [isLoading, setLoad] = useState(true)
+  // const [path, setPath] = useState("/")
+  const background = useLoadingStrategy("background", {})
+  const { loading, setProps, setStrategy } = useLoadingStrategy("dots", { amount: 3 })
 
-  const lenis = useLenisScroll()
-  const pathname = usePathname();
+  // const router = useRouter()
 
-  useEffect(() => {
-    function initLoading() {
-      setLoad(true)
-      lenis.scrollTo(0, { immediate: true, })
-      document.body.style.cursor = "wait";
+  const transitionTo = useLoadingWithStrategies(background.loading.strategy, loading.strategy)
+
+  const mountLoading = async <
+    TStrategyValue extends TAnimationKey,
+    TStrategyProps extends Omit<LoadingProps<TStrategyValue>, "controls">
+  >(
+    href: string,
+    newStrategy: TStrategyValue,
+    newProps: TStrategyProps
+  ) => {
+    console.log("mountLoading has fired")
+    setProps(newProps)
+    setStrategy(newStrategy)
+
+    transitionTo(href)
+  }
+
+  useLayoutEffect(() => {
+    // transitionTo(path)
+
+    return () => {
+      (async () => {
+        await loading.strategy.slideOut()
+      })()
     }
-
-    const cancellingLoading = () => setTimeout(() => {
-      setLoad(false)
-      document.body.style.cursor = "default";
-
-    }, ANIMATION_DURATION_IN_MS)
-
-    initLoading()
-    cancellingLoading()
-
-  },
-    [pathname]
-  )
-
-  const newSetLoad = useCallback((isLoading: boolean) => setLoad(isLoading), [])
+  }, [])
 
   return (
-    <LoadingContext.Provider value={newSetLoad}>
+    <MountingLoadingContext.Provider value={mountLoading}>
       <AnimatePresence mode='wait'>
-        {
-          isLoading && <Preloader />
-        }
+        <GenericLoading strategy={background.loading.strategy} props={background.loading.props} />
+        <GenericLoading strategy={loading.strategy} props={loading.props} />
+        {children}
       </AnimatePresence>
-      {children}
-    </LoadingContext.Provider>
+    </MountingLoadingContext.Provider>
   )
 }
+
+
