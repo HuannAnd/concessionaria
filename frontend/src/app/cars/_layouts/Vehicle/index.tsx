@@ -33,7 +33,7 @@ export default function Vehicle({ brand, model, strategy, price, discount, image
         // start: "top 50%",
         end: "bottom 50%",
         onUpdate: () => {
-            const scroll = ScrollTrigger.getById()?.progress()
+            // const scroll = ScrollTrigger.getById()?.progress()
         },
 
         markers: true,

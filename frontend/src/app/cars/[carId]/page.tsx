@@ -26,7 +26,7 @@ export default function CarPage({
         <p className={styles.name}>Sedan x117</p>
         <small className={styles.carBrand}>Mercedes Benz</small>
       </div>
-      <article>
+      <article> 
         <img className={styles.carImage} src={cars[color]} alt="Mercedes Benz Large" />
         <h2 className={styles.type}>OutBack</h2>
         <p className={styles.price}>$78.812</p>
