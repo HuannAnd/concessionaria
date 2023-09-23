@@ -4,9 +4,8 @@ import { Dispatch, SetStateAction, useState } from 'react';
 
 import Link from 'next/link'
 
-import styles from './optioner.module.scss'
+import styles from './style.module.scss'
 
-import { Power3 } from 'gsap'
 import { AnimatePresence, motion } from 'framer-motion';
 
 interface OptionerProps {
