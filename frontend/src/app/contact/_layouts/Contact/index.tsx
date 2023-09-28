@@ -6,6 +6,8 @@ import styles from './page.module.scss'
 import Cta from '@/components/Cta'
 import { useSearchParams } from 'next/navigation';
 
+import Arrow from '@/components/Arrow';
+
 export default function Contact() {
   const searchParams = useSearchParams()
   const name = searchParams.get("name")
@@ -65,7 +67,10 @@ export default function Contact() {
       </fieldset>
       <footer className={styles.bottom}>
         <Cta className={styles.cta} action={() => mountLoading("/", "dots", { amount: 3 })}>Go home</Cta>
-        <button className={styles.submit}>Confirm</button>
+        <button className={styles.submit}>
+          {/* Confirm */}
+          <Arrow className={styles.arrow} />
+        </button>
       </footer>
     </form>
   )

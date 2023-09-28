@@ -19,7 +19,11 @@
 
   font-family: "Inter", sans-serif;
 
-  border-top: 1px solid #111;
+  border-bottom: 1px solid #11111127;
+
+  &:last-child {
+    margin-bottom: 64px;
+  }
 }
 
 .label {
@@ -74,6 +78,7 @@
 }
 
 .submit {
+  position: relative;
   border: none;
   background: #ff0000;
   padding: 1.75vw 9vw;
@@ -89,6 +94,8 @@
   @media (width <= 768px) {
     margin: 0 auto;
   }
+
+
 }
 
 .bottom {
@@ -100,5 +107,14 @@
     position: absolute;
     width: calc(100% - 2 * var(--section-padding));
     bottom: var(--section-padding);
+  }
+}
+.arrow {
+  position: relative;
+  transition: 300ms;
+  transform: translateX(0%);
+
+  .submit:hover & {
+    transform: translateX(100%);
   }
 }
