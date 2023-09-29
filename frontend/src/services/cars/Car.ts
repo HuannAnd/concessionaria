@@ -14,7 +14,7 @@ export default class Car
     this.createUrl()
   }
   createUrl(): void {
-    const carImageUrl = path.join(process.cwd(), `public/cars/${this.attach}/${this.id}.${this.urlFormat}`)
+    const carImageUrl = `/cars/${this.attach}/${this.id}.${this.urlFormat}`
     this.url = carImageUrl
   }
 }

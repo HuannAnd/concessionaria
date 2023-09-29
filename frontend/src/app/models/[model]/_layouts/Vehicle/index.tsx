@@ -12,6 +12,7 @@ import Cta from '@/components/Cta';
 import { Power3 } from 'gsap';
 
 import useRedirectWithLoading from '@/hooks/useRedirectWithLoading';
+import { usePathname } from 'next/navigation';
 
 interface VehicleProps {
   brand: string,
@@ -23,6 +24,9 @@ interface VehicleProps {
 }
 
 export default function Vehicle({ brand, model, strategy, price, discount, imageUrl }: VehicleProps) {
+  const pathname = usePathname()
+  console.log("pathname value: ", pathname)
+
   const Strategy = new Orquetrator(price, discount).getStrategy(strategy)!
   const ref = useRef<HTMLDivElement>(null!)
   const mountLoading = useRedirectWithLoading()
@@ -40,7 +44,7 @@ export default function Vehicle({ brand, model, strategy, price, discount, image
         <strong className={styles.model}>{model}</strong>
         <div className={styles.bottom}>
           <p className={styles.price}>{Strategy.getPrice()}</p>
-          <Cta className={styles.cta} action={() => mountLoading(`/cars/${12}`, "dots", { amount: 3 })}>Buy Now</Cta>
+          <Cta className={styles.cta} action={() => mountLoading(`${pathname}/${12}`, "dots", { amount: 3 })}>Buy Now</Cta>
         </div>
       </div>
     </section>

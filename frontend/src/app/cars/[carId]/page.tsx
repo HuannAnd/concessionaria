@@ -1,6 +1,6 @@
 import styles from './page.module.scss'
 
-import Optioner from '../_layouts/Optioner'
+import Optioner from './_layouts/Optioner'
 import History from '@/components/History'
 
 const cars = {
