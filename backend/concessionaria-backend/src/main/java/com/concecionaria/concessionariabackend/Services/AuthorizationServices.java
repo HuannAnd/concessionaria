@@ -6,13 +6,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.concecionaria.concessionariabackend.Repositorios.UsuariosRepository;
+import com.concecionaria.concessionariabackend.Repositorios.UserRepository;
 
 @Service
 public class AuthorizationServices implements UserDetailsService{
 
     @Autowired
-    UsuariosRepository Repository;
+    UserRepository Repository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
