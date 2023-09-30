@@ -14,7 +14,7 @@ export default function Contact() {
   const email = searchParams.get("email")
   const mountLoading = usePrepareToView()
 
-  async function onAction(event: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget)
@@ -33,7 +33,7 @@ export default function Contact() {
   }
 
   return (
-    <form className={styles.form} action={onAction as any}>
+    <form className={styles.form} onSubmit={onSubmit}>
       <legend className={styles.title}>Contact</legend>
       <fieldset>
         <div className={styles.field}>
