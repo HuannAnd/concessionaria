@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import com.concecionaria.concessionariabackend.Repositorios.UserRepository;
-import com.concecionaria.concessionariabackend.Usuarios.UserRoles;
-import com.concecionaria.concessionariabackend.Usuarios.Users;
+import com.concecionaria.concessionariabackend.Repository.UserRepository;
+import com.concecionaria.concessionariabackend.Users.UserRoles;
+import com.concecionaria.concessionariabackend.Users.Users;
 
 @Service
 public class UsuariosServices {

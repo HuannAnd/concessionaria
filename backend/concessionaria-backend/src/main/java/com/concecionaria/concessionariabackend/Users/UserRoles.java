@@ -1,4 +1,4 @@
-package com.concecionaria.concessionariabackend.Usuarios;
+package com.concecionaria.concessionariabackend.Users;
 
 public enum UserRoles {
     ADMIN("admin"),

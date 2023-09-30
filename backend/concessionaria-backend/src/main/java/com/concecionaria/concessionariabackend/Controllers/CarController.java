@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.concecionaria.concessionariabackend.EntidadesDeConsulta.Cars;
-import com.concecionaria.concessionariabackend.Repositorios.CarRepository;
+import com.concecionaria.concessionariabackend.ConsultEntity.Cars;
+import com.concecionaria.concessionariabackend.Repository.CarRepository;
 
 @RestController
 @RequestMapping("/concessionaria/cars")

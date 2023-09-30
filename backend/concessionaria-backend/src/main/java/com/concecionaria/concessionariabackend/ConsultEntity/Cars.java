@@ -1,4 +1,4 @@
-package com.concecionaria.concessionariabackend.EntidadesDeConsulta;
+package com.concecionaria.concessionariabackend.ConsultEntity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
