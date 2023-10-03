@@ -29,8 +29,8 @@ public class CarController {
     }
 
     @GetMapping("/brand/{marca}")
-    public List<Cars> findByBrand(@PathVariable String brand) {
-        List<Cars> CarByBrand = Repository.findByBrand(brand);
+    public List<Cars> findByBrand(@PathVariable String marca) {
+        List<Cars> CarByBrand = Repository.findByBrand(marca);
 
         return CarByBrand;
     }

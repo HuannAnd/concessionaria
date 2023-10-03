@@ -12,12 +12,9 @@ services:
   #     - 3000:3000
   #   restart: always
   backend:
-    image: paketobuildpacks/run
-    ports: 
+    container_name: spring-boot
+    build:
+      context: ./backend/concessionaria-backend
+      dockerfile: dev.Dockerfile
+    ports:
     - 8080:8080
-  # mongodb:
-  #   image: mongo
-    # ports:
-    #   - 3000:3000
-    # ports:
-    #   - 8080:8080
