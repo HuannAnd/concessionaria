@@ -7,24 +7,37 @@ import Cta from '@/components/Cta'
 import { useSearchParams } from 'next/navigation';
 
 import Arrow from '@/components/Arrow';
+import { useRef } from 'react';
 
 export default function Contact() {
   const searchParams = useSearchParams()
-  const name = searchParams.get("name")
-  const email = searchParams.get("email")
+  
   const mountLoading = usePrepareToView()
+
+  const name = useRef<HTMLInputElement>()
+  const email = useRef<HTMLInputElement>()
+  const phone = useRef<HTMLInputElement>()
+  const question = useRef<HTMLInputElement>()
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
+    // const data = {
+    //   name: name.current?.value!,
+    //   email: email.current?.value!,
+    //   phone: phone.current?.value!,
+    //   question: question.current?.value
+    // } as BOdy
+
     const formData = new FormData(event.currentTarget)
+    console.log("formData value: ", formData.get("name"))
     const response = await fetch('/api/send-user', {
       method: 'POST',
       body: formData,
     })
 
     // Handle response if necessary
-    const data = await response.json()
+    
     // ...
   }
 
