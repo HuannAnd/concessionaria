@@ -44,7 +44,7 @@ export default function Vehicle({ brand, model, strategy, price, discount, image
         <strong className={styles.model}>{model}</strong>
         <div className={styles.bottom}>
           <p className={styles.price}>{Strategy.getPrice()}</p>
-          <Cta className={styles.cta} action={() => mountLoading(`${pathname}/${12}`, "dots", { amount: 3 })}>Buy Now</Cta>
+          <Cta className={styles.cta} action={() => mountLoading(`/cars/${12}`, "dots", { amount: 3 })}>Buy Now</Cta>
         </div>
       </div>
     </section>
