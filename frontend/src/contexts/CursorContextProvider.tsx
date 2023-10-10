@@ -14,8 +14,6 @@ interface Value {
 export const CursorContext = createContext({} as Value)
 
 export default function CursorProvider({ children }: CursorProviderProps) {
-
-
   return (
     <CursorContext.Provider value={{}}>
       <CursorFollower />

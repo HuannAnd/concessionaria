@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import styles from './style.module.scss'
 
 import useRedirectWithLoading from "@/hooks/useRedirectWithLoading";
@@ -8,6 +9,9 @@ interface HistoryProps { }
 
 export default function History({ }: HistoryProps) {
   const mountLoading = useRedirectWithLoading()
+
+  const pathname = usePathname()
+  
 
   return (
     <button className={styles.History} onClick={() => mountLoading("/cars", "dots", { amount: 3 })}>

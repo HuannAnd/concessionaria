@@ -10,10 +10,7 @@ import GenericLoading from './components/GenericLoading';
 import { LoadingProps } from './components/type';
 
 import useLoadingStrategy from './useLoadingStrategy';
-import LettersLoading from './components/LettersLoading';
-import BackgroundLoadingStrategy from './components/BackgroundLoading/anim';
-import AnimationsOrquestrator from './AnimationsOrquestrator';
-import { useRouter } from 'next/router';
+
 
 interface LoadingProviderProps {
   children: React.ReactNode
