@@ -15,42 +15,38 @@ public class Users implements UserDetails {
 
     @Id
     private String id;
+    
     private String email;
     private String nome;
     private UserRoles role;
+    private String phone;
 
-    public Users(String nome, String email, UserRoles role) {
+    public Users(String nome, String email,String phone, UserRoles role) {
         this.nome = nome;
         this.email = email;
         this.role = role;
+        this.phone = phone;
     }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String Nome) {
-        this.nome = Nome;
-    }
-
     public UserRoles getRole() {
         return role;
+    }
+
+    public String getPhone(){
+        return phone;
     }
 
     public void setRole(UserRoles role) {

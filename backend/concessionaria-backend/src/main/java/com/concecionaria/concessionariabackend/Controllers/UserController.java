@@ -25,7 +25,7 @@ public class UserController {
          return ResponseEntity.badRequest().build();
       }
 
-      Users newUser = new Users(data.nome(), data.email(), data.role());
+      Users newUser = new Users(data.nome(), data.email(),data.phone(),data.role());
 
       this.userRepository.save(newUser);
 

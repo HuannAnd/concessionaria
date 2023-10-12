@@ -9,32 +9,31 @@ public class Cars {
 
     @Id
     private String id;
-
-    private String brand;
-
+    private String make;
     private int year;
-
     private String model;
-
     private double price;
-
     private String image;
+    private String classification;
+    private String color;
 
-    public Cars(String id, String brand, int year, String model, double price, String image) {
+    public Cars(String id, String make, int year, String model, double price, String image,String classification,String color) {
         this.id = id;
-        this.brand = brand;
+        this.make = make;
         this.year = year;
         this.model = model;
         this.price = price;
         this.image = image;
+        this.classification = classification;
+        this.color = color;
     }
 
     public String getID() {
         return id;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getMake() {
+        return make;
     }
 
     public int getYear() {
@@ -51,5 +50,13 @@ public class Cars {
 
     public String getImage() {
         return image;
+    }
+
+    public String getClassification(){
+        return classification;
+    }
+
+    public String getColor(){
+        return color;
     }
 }
