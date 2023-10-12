@@ -12,12 +12,13 @@ public class Cars {
     private String make;
     private int year;
     private String model;
-    private double price;
+    private String price;
     private String image;
     private String classification;
     private String color;
 
-    public Cars(String id, String make, int year, String model, double price, String image,String classification,String color) {
+    public Cars(String id, String make, int year, String model, String price, String image, String classification,
+            String color) {
         this.id = id;
         this.make = make;
         this.year = year;
@@ -44,7 +45,7 @@ public class Cars {
         return model;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
@@ -52,11 +53,11 @@ public class Cars {
         return image;
     }
 
-    public String getClassification(){
+    public String getClassification() {
         return classification;
     }
 
-    public String getColor(){
+    public String getColor() {
         return color;
     }
 }
