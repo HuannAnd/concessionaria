@@ -25,7 +25,7 @@ class CarsService {
     return car
   }
 
-  public getAllModels(model: ICarData["attach"]) {
+  public getAllModelsByClassification(model: ICarData["attach"]) {
     const cars = this.cars.filter(x => x.attach === model)
     return cars
   }

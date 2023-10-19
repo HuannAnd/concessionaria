@@ -1,0 +1,36 @@
+@import "helpers";
+
+.BaseLetters {
+  display: flex;
+  width: 80%;
+  height: auto;
+  flex-wrap: wrap;
+
+  column-gap: 0.25rem;
+
+  overflow: hidden;
+  margin-bottom: $space-sm;
+
+  @media (width <= 768px) {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+.spanLine {
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+  display: fit;
+}
+
+.spanLineInner {
+  position: relative;
+  display: block;
+
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.75;
+  font-size: inherit;
+  color: rgba($color: #111, $alpha: 0.8);
+}

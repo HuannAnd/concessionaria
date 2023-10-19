@@ -31,11 +31,8 @@ export const ANIMATION_DURATION_IN_MS = 1000
 export const ANIMATION_DURATION_IN_SECONDS = ANIMATION_DURATION_IN_MS / 1000
 
 export default function LoadingProvider({ children }: LoadingProviderProps) {
-  // const [path, setPath] = useState("/")
   const background = useLoadingStrategy("background", {})
   const { loading, setProps, setStrategy } = useLoadingStrategy("dots", { amount: 3 })
-
-  // const router = useRouter()
 
   const transitionTo = useLoadingWithStrategies(background.loading.strategy, loading.strategy)
 
@@ -55,8 +52,6 @@ export default function LoadingProvider({ children }: LoadingProviderProps) {
   }
 
   useLayoutEffect(() => {
-    // transitionTo(path)
-
     return () => {
       (async () => {
         await loading.strategy.slideOut()
@@ -67,8 +62,8 @@ export default function LoadingProvider({ children }: LoadingProviderProps) {
   return (
     <MountingLoadingContext.Provider value={mountLoading}>
       <AnimatePresence mode='wait'>
-        <GenericLoading strategy={background.loading.strategy} props={background.loading.props} />
-        <GenericLoading strategy={loading.strategy} props={loading.props} />
+        <GenericLoading key={"loading_1"} strategy={background.loading.strategy} props={background.loading.props} />
+        <GenericLoading key={"loading_2"} strategy={loading.strategy} props={loading.props} />
         {children}
       </AnimatePresence>
     </MountingLoadingContext.Provider>

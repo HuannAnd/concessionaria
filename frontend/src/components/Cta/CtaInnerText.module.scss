@@ -1,0 +1,18 @@
+.BaseInnerText {
+  width: fit-content;
+
+  font-size: clamp(0.7em, 2.3vw, 1em);
+  letter-spacing: -3%;
+  text-transform: uppercase;
+  text-align: left;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: rgba($color: #111, $alpha: 0.8);
+
+  background-color: transparent;
+
+  cursor: pointer;
+
+  // flex: 1;
+}

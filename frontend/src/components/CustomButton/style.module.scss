@@ -1,0 +1,36 @@
+@import "helpers";
+
+.BaseCustomButton {
+  padding: 20px 50px;
+  font-size: 20px;
+
+  cursor: pointer;
+
+  &[data-button-variant="normal"] {
+    background-color: $red-200;
+
+    color: $light-100;
+    font-weight: 500;
+  }
+
+  &[data-button-variant="secondary"] {
+    background-color: $red-200;
+
+    color: $light-100;
+    font-weight: 500;
+  }
+
+  &[data-button-variant="inverted"] {
+    background-color: $light-100;
+
+    color: $dark-300;
+    font-weight: 500;
+  }
+
+  &[data-button-variant="darkness"] {
+    background-color: $dark-200;
+
+    color: $light-200;
+    font-weight: 500;
+  }
+}

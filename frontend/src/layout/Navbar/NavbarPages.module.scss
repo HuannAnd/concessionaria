@@ -1,0 +1,68 @@
+@import "helpers";
+
+.NavbarPages {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100px;
+
+  display: flex;
+  justify-content: center;
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  z-index: 997;
+
+  transition: transform $time-to-resize $ease-smooth;
+
+  &[data-can-be-show="true"] {
+    transform: translateY(0%);
+  }
+
+  &[data-can-be-show="false"] {
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+
+  @media (width <= 768px) {
+    display: none;
+  }
+}
+
+.content {
+  width: var(--content-width);
+  // height: 100%;
+  padding: 0 var(--section-padding);
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-padding);
+}
+
+.brand {
+  height: 100%;
+  padding: 1.5rem 0;
+
+  // column-span: 2 span / 1 span;
+}
+
+.navLink {
+  color: $light-400;
+  text-decoration: none;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+
+.make {
+  position: absolute;
+  right: 0;
+}

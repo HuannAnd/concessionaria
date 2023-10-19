@@ -1,4 +1,4 @@
-@import "variables";
+@import "helpers";
 
 .hamburguer {
   position: fixed;
@@ -6,7 +6,7 @@
   top: $space-sm;
   visibility: hidden;
 
-  background: #ff0000;
+  background: $red-200;
 
   width: 10vh;
   aspect-ratio: 1 / 1;
@@ -15,7 +15,7 @@
 
   cursor: pointer;
 
-  z-index: 100;
+  z-index: 998;
 
   @media (width <= 768px) {
     visibility: visible;

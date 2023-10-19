@@ -9,10 +9,7 @@ interface HistoryProps { }
 
 export default function History({ }: HistoryProps) {
   const mountLoading = useRedirectWithLoading()
-
-  const pathname = usePathname()
   
-
   return (
     <button className={styles.History} onClick={() => mountLoading("/cars", "dots", { amount: 3 })}>
       <svg className={styles.icon} width="58" height="40" viewBox="0 0 29 20" fill="none" xmlns="http://www.w3.org/2000/svg">

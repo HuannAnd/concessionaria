@@ -7,27 +7,14 @@ import Cta from '@/components/Cta'
 import { useSearchParams } from 'next/navigation';
 
 import Arrow from '@/components/Arrow';
+import CustomButton from '@/components/CustomButton';
 import { useRef } from 'react';
 
 export default function Contact() {
-  const searchParams = useSearchParams()
-  
   const mountLoading = usePrepareToView()
-
-  const name = useRef<HTMLInputElement>()
-  const email = useRef<HTMLInputElement>()
-  const phone = useRef<HTMLInputElement>()
-  const question = useRef<HTMLInputElement>()
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-
-    // const data = {
-    //   name: name.current?.value!,
-    //   email: email.current?.value!,
-    //   phone: phone.current?.value!,
-    //   question: question.current?.value
-    // } as BOdy
 
     const formData = new FormData(event.currentTarget)
     console.log("formData value: ", formData.get("name"))
@@ -35,14 +22,6 @@ export default function Contact() {
       method: 'POST',
       body: formData,
     })
-
-    // Handle response if necessary
-    
-    // ...
-  }
-
-  function initRequestedParams() {
-
   }
 
   return (
@@ -79,11 +58,13 @@ export default function Contact() {
         </div>
       </fieldset>
       <footer className={styles.bottom}>
-        <Cta className={styles.cta} action={() => mountLoading("/", "dots", { amount: 3 })}>Go home</Cta>
-        <button className={styles.submit}>
-          {/* Confirm */}
-          <Arrow className={styles.arrow} />
-        </button>
+        <Cta.Root className={styles.cta} >
+          <Cta.InnerText onClick={() => mountLoading("/home", "dots", { amount: 3 })}>Go home</Cta.InnerText>
+          <Cta.HrLine />
+        </Cta.Root>
+        <CustomButton className={styles.submit} variant='darkness'>
+          Confirm
+        </CustomButton>
       </footer>
     </form>
   )

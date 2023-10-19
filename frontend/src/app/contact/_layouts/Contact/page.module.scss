@@ -1,7 +1,7 @@
-@import "variables";
+@import "helpers";
 
 .form {
-  max-width: 100em;
+  max-width: var(--content-width);
   min-height: 100vh;
   margin: 0 auto;
   padding: var(--section-padding);

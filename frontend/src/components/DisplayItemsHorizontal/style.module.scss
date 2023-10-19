@@ -1,9 +1,8 @@
-@import "variables";
+@import "helpers";
 
-.displayItemsHorizontal {
+.BaseDisplayItemsHorizontal {
   width: 100%;
-  height: 50dvh;
-  padding: 1.7vw 0;
+  // padding: 1.7vw 0;
 
   display: flex;
   flex-direction: row;
@@ -14,13 +13,12 @@
   gap: var(--gap-padding);
 
   @media (width <= 768px) {
-    height: 50dvh;
+    // height: 50dvh;
 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     flex-direction: column;
 
     gap: var(--gap-padding);
-
   }
 }
-
-

@@ -1,0 +1,54 @@
+@import "lenis";
+@import "typography";
+
+:root {
+  --main-background-color: #fff;
+  --section-padding: clamp(5em, 21vh, 12em);
+  --container-padding: clamp(2.5em, 8vw, 8em);
+  --gap-padding: clamp(1.5em, 4vw, 2.5em);
+  --popup-height: 245px;
+  --content-width: 1440px;
+}
+
+@media (width <= 1024px) {
+  :root {
+    --section-padding: clamp(1em, 6vw, 7em);
+    --container-padding: 1.75vw;  
+    --gap-padding: clamp(1.5em, 4vw, 2.5em);
+  }
+
+  p,
+  h5,
+  button,
+  span {
+    font-size: clamp(1rem, 3vw, 2.5rem);
+  }
+}
+
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: antialiased;
+}
+
+body {
+  cursor: wait;
+  overflow-x: hidden;
+
+  background-color: var(--main-background-color);
+}
+
+*::selection {
+  background: rgba(255, 0, 0, 1);
+  color: white;
+  text-shadow: none;
+}
+
+*::placeholder {
+  color: #1111117d;
+}
+
+

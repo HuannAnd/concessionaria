@@ -14,7 +14,7 @@ export default function Hamburguer({ }: HamburguerProps) {
   const pathname = usePathname()
   useEffect(() => {
     console.log()
-    if (pathname === "/") {
+    if (pathname in ["/", "/contact"]) {
       gsap.registerPlugin(ScrollTrigger)
       gsap.to(ref.current, {
         scrollTrigger: {

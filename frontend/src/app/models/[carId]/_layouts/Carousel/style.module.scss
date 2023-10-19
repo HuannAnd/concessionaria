@@ -1,0 +1,58 @@
+.Carousel {
+  position: relative;
+  width: 100%;
+  height: 45dvh;
+  height: auto;
+
+  scale: .8;
+
+  overflow: hidden;
+}
+
+.leftRect,
+.rightRect {
+  position: absolute;
+  width: 70%;
+
+  z-index: -1;
+}
+
+.leftRect {
+  height: 850px;
+  left: 0;
+  bottom: 0;
+  
+  background-color: #89681b;
+}
+
+.rightRect {
+  top: 0;
+  right: 0;
+  height: 800px;
+
+  background-color: #e6ab20;
+
+}
+
+.type,
+.price {
+  text-align: center;
+}
+
+.type {
+  color: #fff;
+
+  z-index: 10;
+}
+
+.price {
+  text-align: center;
+  color: #ccc;
+  opacity: 0.6;
+}
+
+.action {
+  overflow: hidden;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  height: 800px;
+}

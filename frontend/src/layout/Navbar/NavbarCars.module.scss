@@ -1,0 +1,67 @@
+@import "helpers";
+
+.NavbarCarDisplay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ccc;
+  border-bottom: 1px solid #aaa;
+
+  z-index: 998;
+
+  transition: transform $time-to-resize $ease-smooth;
+
+  &[data-has-car-on-vision="true"] {
+    transform: translateY(0%);
+  }
+
+  &[data-has-car-on-vision="false"] {
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+
+  @media (width <= 768px) {
+    display: none;
+  }
+}
+
+.content {
+  position: relative;
+  width: var(--content-width);
+  height: auto;
+  padding: 0 var(--section-padding);
+}
+
+.model {
+  display: inline-block;
+
+  text-transform: uppercase;
+
+  padding: 0.5rem 2rem 0.5rem 0;
+  border-right: 1px solid $dark-100;
+}
+
+.navLink {
+  display: inline-block;
+  margin-left: 32px;
+
+  color: $dark-100;
+  text-decoration: none;
+  font-size: 18px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+
+.make {
+  position: absolute;
+  right: var(--section-padding);
+  height: 100%;
+}

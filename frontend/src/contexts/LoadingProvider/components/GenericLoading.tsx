@@ -21,21 +21,6 @@ export default function GenericLoading<
   strategy: TStrategy,
   props: TPropsStrategy
 }) {
-  // const [scope, animate] = useAnimate()
-  // const ref = useRef<any>(null!)
-  // const Strategy =
-  //   new AnimationsOrquestrator(ref as AnimationControls)
-  //     .getStrategy(strategy)
-
-  // useEffect(() => {
-  //   if (!strategy) return
-  //   (
-  //     async () => {
-  //       await Strategy.slideIn()
-  //     }
-  //   )()
-  // }, [strategy])
-
   switch (strategy.animation) {
     case "letters":
       return <LettersLoading {...props as any} controls={strategy.controls} />

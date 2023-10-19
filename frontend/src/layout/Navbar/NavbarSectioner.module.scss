@@ -1,0 +1,57 @@
+@import "helpers";
+
+.NavbarSectioner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $red-200;
+
+  z-index: 997;
+
+  transition: opacity $time-to-resize $ease-smooth;
+
+  &[data-can-be-show="true"] {
+    opacity: 1;
+  }
+
+  &[data-can-be-show="false"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media (width <= 768px) {
+    display: none;
+  }
+}
+
+.content {
+  width: var(--content-width);
+  height: 100%;
+  padding: 0 var(--section-padding);
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-content: space-between;
+  gap: var(--gap-padding);
+}
+
+.navLink {
+  width: max-content;
+  margin: auto 0;
+
+  color: $light-100;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+
+.brand {
+}

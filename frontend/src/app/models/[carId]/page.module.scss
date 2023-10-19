@@ -1,0 +1,111 @@
+.CarPage {
+  position: relative;
+  min-height: 100dvh;
+  max-width: 100em;
+  margin: 0 auto;
+  padding: 0 var(--section-padding);
+
+  box-shadow: 0 0 0 100vmax #fff;
+  clip-path: inset(0 -100vmax);
+
+  background-color: #fff;
+}
+
+.name {
+  color: #111;
+}
+
+.carBrand {
+  color: #111;
+  opacity: 0.5;
+}
+
+.upper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: var(--container-padding);
+  margin-bottom: 3vw;
+}
+
+.action {
+  padding: 32px 0;
+  clip-path:  polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  height: 55dvh;
+
+  // background-color: #89681b;
+}
+
+.leftRect,
+.rightRect {
+  position: absolute;
+  width: 65vh;
+  aspect-ratio: 1/1;
+  top: 50%;
+  left: 50%;
+
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+.leftRect {
+  background-color: #89681b;
+
+  transform: translate(calc(-50% - 200px), -50%);
+}
+
+.rightRect {
+  background-color: #e6ab20;
+
+  transform: translate(calc(-50% + 200px), calc(-50% - 100px));
+}
+
+.carImage {
+  height: 45dvh;
+  width: 100%;
+  display: block;
+  margin-inline: auto;
+
+  object-fit: contain;
+
+  z-index: 10;
+}
+
+.carImage2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25dvh;
+
+  filter: blur(2px);
+}
+
+.carImage3 {
+  position: absolute;
+  bottom: -25%;
+  right: -60%;
+  height: 55dvh;
+
+  transform-origin: left;
+  filter: blur(2px);
+
+  z-index: 6;
+}
+
+.type,
+.price {
+  text-align: center;
+}
+
+.type {
+  color: #fff;
+
+  z-index: 10;
+}
+
+.price {
+  text-align: center;
+  color: #ccc;
+  opacity: 0.6;
+}

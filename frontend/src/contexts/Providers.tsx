@@ -1,18 +1,23 @@
-import CursorProvider from './CursorContextProvider'
+import CursorProvider from './CursorProvider'
 import LenisScrollProvider from './LenisScrollProvider'
 import LoadingProvider from './LoadingProvider'
+import CookiesProvider from './CookiesProvider'
+import NavigationProvider from './NavigationProvider'
 
 
-interface ProvidersProps {
-	children: React.ReactNode
-}
+interface ProvidersProps
+	extends React.PropsWithChildren { }
 export default function Providers({ children }: ProvidersProps) {
 	return (
 		<CursorProvider>
 			<LenisScrollProvider>
-				<LoadingProvider>
-					{children}
-				</LoadingProvider>
+				<NavigationProvider>
+					<LoadingProvider>
+						<CookiesProvider>
+							{children}
+						</CookiesProvider>
+					</LoadingProvider>
+				</NavigationProvider>
 			</LenisScrollProvider>
 		</CursorProvider>
 	)

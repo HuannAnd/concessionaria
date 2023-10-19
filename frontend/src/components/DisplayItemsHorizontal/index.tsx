@@ -4,13 +4,15 @@ import styles from './style.module.scss'
 
 import { useRef, useEffect } from 'react';
 
-interface DisplayItemsHorizontalProps {
-  children: React.ReactNode,
+import cn from '@/utils/cn';
+
+interface DisplayItemsHorizontalProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   maxScaleY?: number,
 
 }
 
-export default function DisplayItemsHorizontal({ children, maxScaleY = 2 }: DisplayItemsHorizontalProps) {
+export default function DisplayItemsHorizontal({ children, className, maxScaleY = 2, ...rest }: DisplayItemsHorizontalProps) {
   const ref = useRef<HTMLDivElement>(null!)
   let xClient = 0;
   let requestAnimationFrameId: any = null;
@@ -24,7 +26,11 @@ export default function DisplayItemsHorizontal({ children, maxScaleY = 2 }: Disp
       }
     }
 
-    const manageMouseLeave = () => xClient = 0
+    const manageMouseLeave = () => {
+      xClient = 0
+      cancelAnimationFrame(requestAnimationFrameId)
+      requestAnimationFrameId = null
+    }
 
     function lerpingXAxis(x: number, width: number) {
       return 1 + maxScaleY * .01 * window.innerWidth / Math.abs(xClient - x - width / 2)
@@ -33,22 +39,25 @@ export default function DisplayItemsHorizontal({ children, maxScaleY = 2 }: Disp
       for (let i = 0; i < ref.current.children.length; i++) {
         const element = ref.current.children.item(i) as HTMLDivElement
         const x = element.offsetLeft
-        const width = element.offsetWidth      
+        const width = element.offsetWidth
 
-        console.log("Animating");
-        
         element.style.transform = `scaleY(${Math.min(lerpingXAxis(x, width), maxScaleY)})`
       }
+
+      if (!requestAnimationFrameId) return
 
       requestAnimationFrame(animate)
     }
 
     ref.current.addEventListener("mousemove", manageMouseMove as any)
-    ref.current.addEventListener("mouseleave", () => cancelAnimationFrame(requestAnimationFrameId))
-    
+    ref.current.addEventListener("mouseleave", manageMouseLeave)
 
+    const cachedRef = ref
     return () => {
       cancelAnimationFrame(requestAnimationFrameId)
+
+     cachedRef.current?.removeEventListener("mousemove", manageMouseMove as any)
+     cachedRef.current?.removeEventListener("mouseleave", manageMouseLeave)
     }
   },
     []
@@ -56,7 +65,7 @@ export default function DisplayItemsHorizontal({ children, maxScaleY = 2 }: Disp
 
 
   return (
-    <article ref={ref} className={styles.displayItemsHorizontal}>
+    <article ref={ref} className={cn(styles.BaseDisplayItemsHorizontal, className)} {...rest}>
       {children}
     </article>
   )

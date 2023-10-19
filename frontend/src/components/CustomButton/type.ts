@@ -1,0 +1,1 @@
+export type TCustomButtonVariant = "normal" | "inverted" | "secondary" | "darkness"

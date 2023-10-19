@@ -1,15 +1,15 @@
-import './globals.css'
+import './_styles/index.scss'
 
 import type { Metadata } from 'next'
 
-import { Fugaz_One, Inter } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
 import Navbar from '@/layout/Navbar'
+
 import Hamburguer from '@/components/Hamburguer'
 
 import Providers from '@/contexts/Providers'
 
-const fugazOne = Fugaz_One({ subsets: ['latin'], weight: ['400'] })
 const inter = Inter({ subsets: ['latin'], weight: ["100", "200", "400", "600", "500", "700", "900"], variable: "--font-fugaz-one" })
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={fugazOne.className}>
+      <body className={inter.className}>
         <Providers>
           <Navbar />
           <Hamburguer />

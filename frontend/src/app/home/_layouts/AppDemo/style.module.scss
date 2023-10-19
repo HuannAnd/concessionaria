@@ -1,0 +1,42 @@
+@import "helpers";
+
+.AppDemo {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--container-padding) var(--section-padding);
+
+  background-color: $light-200;
+  box-shadow: 0 0 0 100vmax $light-200;
+  clip-path: inset(0 -100vmax);
+
+  @media (width <= 768px) {
+    min-height: auto;
+    padding: calc(var(--section-padding) * 5.55) var(--section-padding);
+  }
+}
+
+.title {
+  display: block;
+  margin-bottom: $space-sm;
+
+  @media (width <= 768px) {
+    text-align: center;
+  }
+}
+
+.info,
+.cta {
+  margin-top: $space-lg;
+}
+
+.info {
+  display: inline-block;
+  width: max-content;
+
+  font-weight: 200;
+  color: rgba($color: #111, $alpha: 0.6);
+}
+
+.cta {
+  float: right;
+}

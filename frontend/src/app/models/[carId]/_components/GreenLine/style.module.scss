@@ -1,0 +1,27 @@
+$base-transition-duration: 500ms;
+$base-parent-rotation: 15deg;
+$inverse_child-rotation: -$base-parent-rotation;
+
+.GreenLine {
+  position: absolute;
+  height: 2px;
+  width: 800px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ($base-parent-rotation);
+  transform-origin: center;
+
+  background-color: lime;
+}
+
+.BlueEntity {
+  position: absolute;
+
+  transform: translate(-50%, -50%) rotateZ($inverse_child-rotation);
+  transition-duration: 500ms;
+
+  object-fit: contain;
+  object-position: center;
+  
+
+}

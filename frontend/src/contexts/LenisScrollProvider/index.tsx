@@ -8,10 +8,6 @@ interface LenisScrollProviderProps {
   children: React.ReactNode
 }
 
-interface Value {
-
-}
-
 export const LenisScrollContext = createContext({} as Lenis)
 
 export default function LenisScrollProvider({ children }: LenisScrollProviderProps) {

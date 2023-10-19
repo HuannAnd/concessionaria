@@ -1,0 +1,119 @@
+@import "helpers";
+
+.Vehicle {
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: transparent;
+
+  margin-inline: auto;
+  z-index: 100;
+
+  clip-path: inset(0 -100vmax);
+  // opacity: 1;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100dvh;
+
+  object-fit: cover;
+  object-position: top;
+
+  z-index: -2;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: var(--content-width);
+  padding: var(--container-padding) var(--section-padding);
+}
+
+.fumeBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgb(0, 0, 0, 0.9);
+  mix-blend-mode: darken;
+
+  z-index: -1;
+}
+
+.model {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 250px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 0.8;
+  text-transform: uppercase;
+  letter-spacing: -30px;
+
+  color: #fff;
+}
+
+.brand {
+  color: #8b8989;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  display: inline-block;
+
+  color: $light-100;
+}
+
+.info {
+  display: inline-block;
+  padding: 0.5rem 1rem 0.5rem 0;
+  margin-right: 1rem;
+
+  color: $light-100;
+
+  border-right: 1px solid $dark-100;
+}
+
+.make {
+  width: max-content;
+
+  color: $light-100;
+  text-transform: uppercase;
+}
+
+.slogan {
+  color: $dark-100;
+}
+
+.price {
+  display: inline-block;
+}
+
+.priceWithoutDiscount {
+  color: $dark-100;
+  text-decoration: line-through;
+}
+
+.cta {
+  filter: invert(1);
+}

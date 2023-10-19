@@ -1,0 +1,42 @@
+p,
+small,
+h5,
+strong,
+button,
+span {
+  font-family: "Inter", sans-serif;
+}
+
+h1 {
+  font-size: clamp(6rem, 10vw, 12.5rem);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+}
+
+h2,
+legend {
+  font-size: 4rem;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+}
+
+p,
+span,
+label,
+input {
+  -webkit-font-smoothing: antialiased;
+  font-size: clamp(1rem, 1.3vw, 2.5rem);
+  line-height: 1.45;
+}
+
+small {
+  font-size: 0.6875rem;
+  font-style: italic;
+}
+
+@media (width <= 768px) {
+  
+}

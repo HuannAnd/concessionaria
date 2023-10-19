@@ -1,0 +1,71 @@
+@import "helpers";
+
+.CookiesPopup {
+  position: fixed;
+  // padding: 1rem var(--section-padding);
+  width: 100vw;
+  height: auto;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-color: rgba(200, 200, 200, 0.9);
+  clip-path: inset(0 -100vmax);
+  box-shadow: 0 0 0 100vmax rgba(200, 200, 200, 0.9);
+
+  z-index: 999;
+
+  @media (width <= 768px) {
+    padding: 1rem $space-sm;
+  }
+}
+
+.innerContent {
+  width: var(--content-width);
+  height: auto;
+  margin: 0 auto;
+  padding: 1rem var(--section-padding);
+}
+
+.title {
+  margin-bottom: 1rem;
+
+  color: #111;
+  font-smooth: smooth;
+  font-weight: 600;
+
+  @media (width <= 768px) {
+    text-align: center;
+  }
+}
+
+.addon {
+  color: #666;
+  font-size: 1.125rem;
+
+  @media (width <= 768px) {
+    text-align: center;
+  }
+}
+
+.ourCookies {
+  text-decoration: underline;
+  font-style: normal;
+  font-size: inherit;
+  font-weight: 400;
+  color: #111;
+
+  @media (width <= 768px) {
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
+
+.acceptAndClose {
+  display: block;
+  float: right;
+
+  @media (width <= 768px) {
+    width: 100%;
+  }
+}
