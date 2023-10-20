@@ -21,15 +21,18 @@ export default function About() {
         <small className={styles.addon}>In our presentation, please note that the images in the slideshow are not our own; they've been sourced from external content</small>
       </article>
       <article className={styles.right}>
+        <div className={styles.recovery}>
+
+        </div>
         <div className={styles.carousel}>
           <img ref={image} className={styles.image} src="/slide-car.png" alt="Base car image" />
         </div>
-        <DotListeer.Options className={styles.optioner}>
+        {/* <DotListeer.Options className={styles.optioner}>
           <DotListeer.Dot order={0} />
           <DotListeer.Dot order={1} />
           <DotListeer.Dot order={2} />
           <DotListeer.Dot order={3} />
-        </DotListeer.Options>
+        </DotListeer.Options> */}
       </article>
     </section>
   )

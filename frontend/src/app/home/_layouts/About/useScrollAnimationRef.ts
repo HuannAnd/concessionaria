@@ -18,7 +18,7 @@ export default function useAnimationScrollerRef() {
     })
 
     timeline
-      .to(ref.current, { clipPath: "inset(15%)" })
+      .to(ref.current, { transform: "scale(1.5)" })
   }, [])
 
   return ref

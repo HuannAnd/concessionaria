@@ -67,7 +67,7 @@ export default function Vehicle({ brand, model, strategy, price, discount, image
           </div>
           <Cta.Root className={styles.cta}>
             <Cta.HrLine />
-            <Cta.InnerText onClick={() => mountLoading(`/cars/${12}`, "dots", { amount: 3 })}>Buy Now</Cta.InnerText>
+            <Cta.InnerText onClick={() => mountLoading(`/models/${12}`, "dots", { amount: 3 })}>Buy Now</Cta.InnerText>
           </Cta.Root>
         </div>
       </div>
