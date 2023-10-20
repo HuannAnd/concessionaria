@@ -1,4 +1,4 @@
-package com.concecionaria.concessionariabackend.model;
+package com.concecionaria.concessionariabackend.Model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

@@ -1,4 +1,4 @@
-package com.concecionaria.concessionariabackend.dtos;
+package com.concecionaria.concessionariabackend.DTO;
 
 import com.concecionaria.concessionariabackend.Services.UserRoles;
 

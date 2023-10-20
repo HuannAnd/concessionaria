@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.concecionaria.concessionariabackend.model.Cars;
-import com.concecionaria.concessionariabackend.repository.CarRepository;
+import com.concecionaria.concessionariabackend.Model.Cars;
+import com.concecionaria.concessionariabackend.Repository.CarRepository;
 
 @RestController
 @RequestMapping("/concessionaria/cars")
@@ -18,19 +18,19 @@ import com.concecionaria.concessionariabackend.repository.CarRepository;
 public class CarController {
 
     @Autowired
-    private CarRepository Repository;
+    private CarRepository repository;
 
     @GetMapping
     public List<Cars> getAllCars() {
 
-        List<Cars> carList = Repository.findAll();
+        List<Cars> carList = repository.findAll();
 
         return carList;
     }
 
     @GetMapping("/make/{make}")
     public List<Cars> findByMake(@PathVariable String make) {
-        List<Cars> CarByMake = Repository.findByMake(make);
+        List<Cars> CarByMake = repository.findByMake(make);
 
         return CarByMake;
     }
