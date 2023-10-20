@@ -28,11 +28,11 @@ public class CarController {
         return carList;
     }
 
-    @GetMapping("/brand/{brand}")
-    public List<Cars> findByBrand(@PathVariable String brand) {
-        List<Cars> CarByBrand = Repository.findByBrand(brand);
+    @GetMapping("/make/{make}")
+    public List<Cars> findByMake(@PathVariable String make) {
+        List<Cars> CarByMake = Repository.findByMake(make);
 
-        return CarByBrand;
+        return CarByMake;
     }
 
 }
