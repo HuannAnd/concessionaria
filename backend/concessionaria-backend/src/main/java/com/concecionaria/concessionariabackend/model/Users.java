@@ -1,4 +1,4 @@
-package com.concecionaria.concessionariabackend.Users;
+package com.concecionaria.concessionariabackend.model;
 
 import java.util.Collection;
 import java.util.List;
@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.concecionaria.concessionariabackend.Services.UserRoles;
 
 import jakarta.persistence.Id;
 

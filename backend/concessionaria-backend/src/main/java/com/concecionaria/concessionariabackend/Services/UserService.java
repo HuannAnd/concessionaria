@@ -4,17 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import com.concecionaria.concessionariabackend.Repository.UserRepository;
-import com.concecionaria.concessionariabackend.Users.UserRoles;
-import com.concecionaria.concessionariabackend.Users.Users;
+import com.concecionaria.concessionariabackend.model.Users;
+import com.concecionaria.concessionariabackend.repository.UserRepository;
 
 @Service
-public class UsuariosServices {
+public class UserService {
 
     @Autowired
     private final UserRepository clienteRepository;
 
-    public UsuariosServices(UserRepository clienteRepository) {
+    public UserService(UserRepository clienteRepository) {
         this.clienteRepository = clienteRepository;}
 
     public Users novoUsuario(Users usuarios) {

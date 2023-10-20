@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.concecionaria.concessionariabackend.Repository.UserRepository;
-import com.concecionaria.concessionariabackend.Users.RegisterDTO;
-import com.concecionaria.concessionariabackend.Users.Users;
+
+import com.concecionaria.concessionariabackend.dtos.RegisterDTO;
+import com.concecionaria.concessionariabackend.model.Users;
+import com.concecionaria.concessionariabackend.repository.UserRepository;
 
 @RestController
 @RequestMapping("/concessionaria")
