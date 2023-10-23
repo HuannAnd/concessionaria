@@ -6,6 +6,8 @@ import { useRef, useEffect } from 'react';
 
 import cn from '@/utils/cn';
 
+import useIsMobile from '@/hooks/useIsMobile';
+
 interface DisplayItemsHorizontalProps
   extends React.HTMLAttributes<HTMLDivElement> {
   maxScaleY?: number,
@@ -16,10 +18,13 @@ export default function DisplayItemsHorizontal({ children, className, maxScaleY 
   const ref = useRef<HTMLDivElement>(null!)
   let xClient = 0;
   let requestAnimationFrameId: any = null;
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     function manageMouseMove(e: React.MouseEvent<HTMLElement, MouseEvent>) {
       xClient = e.clientX;
+
+      if(isMobile) return requestAnimationFrameId = null
 
       if (!requestAnimationFrameId) {
         requestAnimationFrameId = requestAnimationFrame(animate)
@@ -44,6 +49,7 @@ export default function DisplayItemsHorizontal({ children, className, maxScaleY 
         element.style.transform = `scaleY(${Math.min(lerpingXAxis(x, width), maxScaleY)})`
       }
 
+      if(isMobile) return requestAnimationFrameId = null
       if (!requestAnimationFrameId) return
 
       requestAnimationFrame(animate)

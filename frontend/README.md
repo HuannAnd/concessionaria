@@ -1,38 +1,41 @@
-Tarefas:
+# A Turma automóveis
 
-1. Configuração Inicial:
+<img src="./poster.png">
 
-- ✔ Configurar um novo projeto Next.js.
-- ✔ Criar a estrutura básica de pastas e arquivos.
+A website made by [HuannAnd](https://github.com/HuannAnd) and [Koioto13224](https://github.com/Koioto13224)
 
-2. Página de Início (Lista de Carros):
+## Why build this project?
 
-- ✔ Criar uma página que exibe uma lista de carros disponíveis.
-- ✔ Fazer requisições para o backend para obter os dados dos carros.
-- Exibir os carros de forma atraente e responsiva.
+The ideia is build a modern and resposive, website, using **Next.js, Scss, Figma, Java Spring Boot**, to study.
 
-3. Detalhes do Carro:
+## Some of observations about this Website
 
-- Criar uma página que exibe os detalhes de um carro selecionado.
-- Exibir informações como marca, modelo, ano, preço, etc.
-- Adicionar um botão para agendar um test drive.
+1 - Apesar de os carros possuirem preço, não é possível a compra dos mesmos.
 
-4. Formulário de Contato:
+2 - Contact section doesnt work
 
-- Criar um formulário de contato para os usuários solicitarem mais informações sobre um carro
-- Validar os campos do formulário antes de enviar
 
-5. Agendamento de Test Drive:
+## Contact / Feedback 🙌
 
-- Criar uma página com um formulário para agendar um test drive
-- Validar os campos do formulário antes de enviar
+Por favor, caso queira nos contatar, ou reportar sobre algum erro, ou evidenciar alguma melhora, segue abaixo os contatos:
 
-6. Estilização com SCSS:
+- Email to me:
 
-- ✔ Utilizar SCSS para estilizar as páginas e componentes.
-- ✔ Criar estilos consistentes e atraentes para toda a aplicação.
+  - [huannvicente14@outlook.com](mailto:huannvicente14@outlook.com)
 
-7. Responsividade:
+- Connect with us on Linkedin:
+  - [HuannAnd](https://www.linkedin.com/in/huann-vicente-5092a9261/)
+  - [Koioto13224]()
 
-- ✔ Garantir que a aplicação seja responsiva em diferentes dispositivos.
-- Testar e ajustar os estilos para diferentes tamanhos de tela.
+## Functionalities
+
+<!-- - FrontEnd -->
+
+- página que exibe uma lista de carros disponíveis.
+- página que exibe os detalhes de um carro selecionado.
+- formulário de contato para os usuários solicitarem mais informações sobre um carro.
+- página com um formulário para agendar um test drive.
+
+## Production
+
+The website will be deployed, soon.

@@ -14,14 +14,14 @@ export default function Hamburguer({ }: HamburguerProps) {
   const pathname = usePathname()
   useEffect(() => {
     console.log()
-    if (pathname in ["/", "/contact"]) {
+    if (pathname in ["/home", "/contact"]) {
       gsap.registerPlugin(ScrollTrigger)
       gsap.to(ref.current, {
         scrollTrigger: {
           start: 10,
           end: window.innerHeight,
           trigger: document.documentElement,
-          markers: false,
+          markers: true,
           onLeave: () => { gsap.to(ref.current, { scale: 1, duration: .25, ease: "power1.out" }) },
           onLeaveBack: () => { gsap.to(ref.current, { scale: 0, duration: .25, ease: "power1.out" }) }
         }

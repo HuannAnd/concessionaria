@@ -14,7 +14,9 @@ services:
   backend:
     container_name: spring-boot
     build:
-      context: ./backend/concessionaria-backend
+      context: ./backend/$JAR_NAME
       dockerfile: dev.Dockerfile
     ports:
     - 8080:8080
+    environment:
+      - JAR_NAME=concessionaria-backend

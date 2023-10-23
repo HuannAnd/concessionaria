@@ -1,6 +1,6 @@
 package com.concecionaria.concessionariabackend;
 
-import org.junit.jupiter.api.Test;
+// import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest

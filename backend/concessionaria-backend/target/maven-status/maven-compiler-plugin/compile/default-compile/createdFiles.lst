@@ -8,7 +8,6 @@ com\concecionaria\concessionariabackend\Users\RegisterDTO.class
 com\concecionaria\concessionariabackend\ConsultEntity\Cars.class
 com\concecionaria\concessionariabackend\Controllers\CarController.class
 com\concecionaria\concessionariabackend\Services\AuthorizationServices.class
-com\concecionaria\concessionariabackend\Users\AuthenticationDTO.class
 com\concecionaria\concessionariabackend\ServletInitializer.class
 com\concecionaria\concessionariabackend\Users\Users.class
 com\concecionaria\concessionariabackend\Repository\UserRepository.class

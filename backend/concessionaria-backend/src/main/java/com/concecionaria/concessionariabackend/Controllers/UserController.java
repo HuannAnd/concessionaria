@@ -19,7 +19,7 @@ public class UserController {
    private UserRepository userRepository;
 
    @PostMapping("/sign-up")
-   public ResponseEntity register(@RequestBody @Validated RegisterDTO data) {
+   public ResponseEntity<Object> register(@RequestBody @Validated RegisterDTO data) {
 
       if (this.userRepository.findByEmail(data.email()) != null) {
          return ResponseEntity.badRequest().build();
