@@ -1,72 +1,41 @@
-# Concessionária - Projeto de Frontend e Backend
+# A Turma automóveis
 
-Este é um projeto de uma concessionária de carros, desenvolvido em equipes separadas para frontend e backend. O projeto utiliza as seguintes tecnologias:
+<img src="./poster.png">
 
-- Frontend: Next.js, SCSS
-- Backend: Java Spring, MongoDB
+A website made by [HuannAnd](https://github.com/HuannAnd) and [Koioto13224](https://github.com/Koioto13224)
 
-## Equipe de Frontend
-Tarefas:
-1. Configuração Inicial:
+## Why build this project?
 
-- Configurar um novo projeto Next.js.
-- Criar a estrutura básica de pastas e arquivos.
+The ideia is build a modern and resposive, website, using **Next.js, Scss, Figma, Java Spring Boot**, to study.
 
-2. Página de Início (Lista de Carros):
+## Some of observations about this Website
 
-- Criar uma página que exibe uma lista de carros disponíveis.
-- Fazer requisições para o backend para obter os dados dos carros.
-- Exibir os carros de forma atraente e responsiva.
-3. Detalhes do Carro:
+1 - Apesar de os carros possuirem preço, não é possível a compra dos mesmos.
 
-- Criar uma página que exibe os detalhes de um carro selecionado.
-- Exibir informações como marca, modelo, ano, preço, etc.
-- Adicionar um botão para agendar um test drive.
-4. Formulário de Contato:
+2 - Contact section doesnt work
 
-- Criar um formulário de contato para os usuários solicitarem mais informações sobre um carro.
-- Validar os campos do formulário antes de enviar.
-5. Agendamento de Test Drive:
 
-- Criar uma página com um formulário para agendar um test drive.
-- Validar os campos do formulário antes de enviar.
-6. Estilização com SCSS:
+## Contact / Feedback 🙌
 
-- Utilizar SCSS para estilizar as páginas e componentes.
-- Criar estilos consistentes e atraentes para toda a aplicação.
-7. Responsividade:
+Por favor, caso queira nos contatar, ou reportar sobre algum erro, ou evidenciar alguma melhora, segue abaixo os contatos:
 
-- Garantir que a aplicação seja responsiva em diferentes dispositivos.
-- Testar e ajustar os estilos para diferentes tamanhos de tela.
-## Equipe de Backend
-Tarefas:
-1. Configuração Inicial:
+- Email to me:
 
-- Configurar um projeto Java Spring.
-- Configuração do Banco de Dados:
+  - [huannvicente14@outlook.com](mailto:huannvicente14@outlook.com)
 
-- Configurar a conexão com o banco de dados MongoDB.
-- Criar modelos (entidades) para representar os carros e agendamentos.
-2. Rotas para Carros:
+- Connect with us on Linkedin:
+  - [HuannAnd](https://www.linkedin.com/in/huann-vicente-5092a9261/)
+  - [Koioto13224]()
 
-- Criar rotas para obter a lista de carros disponíveis.
-- Implementar a lógica para buscar os carros no banco de dados.
-3. Rotas para Agendamentos:
+## Functionalities
 
-- Criar rotas para agendar test drives.
-- Implementar a lógica para salvar os agendamentos no banco de dados.
-4. Autenticação para Admin:
+<!-- - FrontEnd -->
 
-- Implementar um sistema de autenticação para administradores.
-- Proteger as rotas de administração com autenticação.
-5. API RESTful:
+- página que exibe uma lista de carros disponíveis.
+- página que exibe os detalhes de um carro selecionado.
+- formulário de contato para os usuários solicitarem mais informações sobre um carro.
+- página com um formulário para agendar um test drive.
 
-- Criar rotas e controladores seguindo os princípios de uma API RESTful.
-- Garantir que as respostas estejam no formato JSON.
-6. Segurança:
+## Production
 
-Implementar medidas de segurança, como validação de dados e proteção contra ataques.
-7. Testes:
-
-- Escrever testes unitários para os controladores e serviços.
-- Garantir que a aplicação funcione corretamente e de forma confiável.
+The website will be deployed, soon.
