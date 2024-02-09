@@ -10,46 +10,46 @@ public class Carros {
     @Id
     private String id;
 
-    private String marca;
+    private String make;
 
-    private int ano;
+    private int year;
 
-    private String modelo;
+    private String model;
 
-    private double preco;
+    private String price;
 
-    private String imagemCarro;
+    private String image;
 
-    public Carros(String id, String marca, int ano, String modelo, double preco, String imagemCarro) {
+    public Carros(String id, String make, int year, String model, String price, String image) {
         this.id = id;
-        this.marca = marca;
-        this.ano = ano;
-        this.modelo = modelo;
-        this.preco = preco;
-        this.imagemCarro = imagemCarro;
+        this.make = make;
+        this.year = year;
+        this.model = model;
+        this.price = price;
+        this.image = image;
     }
 
     public String getID() {
         return id;
     }
 
-    public String getMarca() {
-        return marca;
+    public String getMake() {
+        return make;
     }
 
-    public int getAno() {
-        return ano;
+    public int getYear() {
+        return year;
     }
 
-    public String getModelo() {
-        return modelo;
+    public String getModel() {
+        return model;
     }
 
-    public double getPreco() {
-        return preco;
+    public String getPrice() {
+        return price;
     }
 
-    public String getImagemCarro() {
-        return imagemCarro;
+    public String getImage() {
+        return image;
     }
 }

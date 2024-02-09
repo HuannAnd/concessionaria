@@ -13,7 +13,7 @@ import com.concecionaria.concessionariabackend.EntidadesDeConsulta.Carros;
 import com.concecionaria.concessionariabackend.Repositorios.CarroRepository;
 
 @RestController
-@RequestMapping("/concessionaria/carros")
+@RequestMapping("/concessionaria/cars")
 @Service
 public class CarroController {
 
@@ -21,18 +21,18 @@ public class CarroController {
     private CarroRepository Repository;
 
     @GetMapping
-    public List<Carros> getTodosOsCarro() {
+    public List<Carros> getAllCars() {
 
         List<Carros> listaCarros = Repository.findAll();
 
         return listaCarros;
     }
 
-    @GetMapping("/marcas/{marca}")
-    public List<Carros> procurarPorMarca(@PathVariable String marca) {
-        List<Carros> CarrosPorMarca = Repository.findByMarca(marca);
+    @GetMapping("/makes/{make}")
+    public List<Carros> findByMake(@PathVariable String make) {
+        List<Carros> CarsByMakes = Repository.findByMake(make);
 
-        return CarrosPorMarca; 
+        return CarsByMakes; 
     }
 
 }
